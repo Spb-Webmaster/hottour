@@ -1,0 +1,63 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #FD5362;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #29ABE2;
+
+$maxWidth: 1440;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin family {
+    font-family: 'Source Sans Pro', "Arial Narrow", Arial, Helvetica, sans-serif;
+}
+
+@import url('reset.css');
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+    @include family;
+    color: $color;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wrapper {
+
+}
+
+header {
+
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.text_center {
+    text-align: center;
+}
+
+a {
+    color: $colorBlue;
+}
+
+a:hover {
+    color: $colorRed;
+}

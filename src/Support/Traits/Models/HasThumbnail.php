@@ -1,0 +1,31 @@
+<?php
+
+namespace Support\Traits\Models;
+
+
+use Illuminate\Support\Facades\File;
+
+trait HasThumbnail
+{
+
+  //  abstract protected function thumbnailDir():string;
+
+    public function  makeThumbnail( string $size,  string $dir,  string $disk = 'files',  string $method = 'resize'):string
+    {
+
+        return route('thumbnail', [
+            'size' => $size,
+            'dir' => $dir,
+            'method' => $method,
+            'disk' => $disk,
+            'file' => File::basename($this->{$this->thumbnailColumn()}),
+
+        ]);
+    }
+
+    protected function thumbnailColumn():string
+    {
+        return 'image';
+    }
+
+}
