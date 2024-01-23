@@ -3,4 +3,19 @@
 @import "@fontsource/source-sans-pro/400-italic.css";
 @import "./fancybox.scss";
 
+@import "./forms/button.scss";
+@import "./forms/input.scss";
+@import "./forms/select.css";
+@import "./translate/translate.css";
+@import "./forms/form_modal/form_modal.scss";
+@import "./pagination.scss";
+@import "./social/social.scss";
+@import "./social/icons-base64.scss";
+@import "./general-style/width.scss";
+@import "./general-style/paddind.scss";
+@import "./menu/menu.scss";
+@import "./selectsity/select_sity.scss";
+@import "./blocks/header.scss";
 @import "./style.scss";
+@import "./forms/loader.css";
+

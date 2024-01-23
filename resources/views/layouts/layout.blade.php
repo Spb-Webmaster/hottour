@@ -15,21 +15,23 @@
     <link rel="manifest" href="/favicon/site.webmanifest">
     <title>@yield('title', config('datastorage.title'))</title>
     <meta name="description" content="@yield('description',  config('datastorage.description'))"/>
-    <meta name="keywords" content="@yield('keywords',  config('datastorage.keywords'))" />
+    <meta name="keywords" content="@yield('keywords',  config('datastorage.keywords'))"/>
 </head>
 <body>
 <div class="wrapper">
-{{--
     <x-message.message/>
+
     @include('include.header')
     <x-menu.menu/>
---}}
+
 
     @yield('content')
-{{--    @include('include.footer')
-    @include('include.dashboardMobile')--}}
+    {{--    @include('include.footer')
+        @include('include.dashboardMobile')--}}
 
 </div><!--.wrapper-->
+
+@include('html.modals.top_order_call')
 <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
 
 </body>

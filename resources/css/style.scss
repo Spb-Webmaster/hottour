@@ -1,9 +1,9 @@
 @charset "utf-8";
 $color: #282828;
-$colorRed: #FD5362;
+$colorRed: #EF533F;
 $colorCCC: #CCCCCC;
 $colorGrey: #667085;
-$colorBlue: #29ABE2;
+$colorBlue: #00AFEF;
 
 $maxWidth: 1440;
 @mixin adaptiv-font($pcSize, $mobSize) {
@@ -60,4 +60,41 @@ a {
 
 a:hover {
     color: $colorRed;
+}
+
+.block__1440 {
+    max-width: 1440px;
+    margin: auto;
+    position: relative;
+}
+
+.block__1000 {
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+}
+
+.block__800 {
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+/*p {
+    @layouts family;
+    font-weight:900;
+    font-style: italic;
+}*/
+
+.block {
+    max-width: 1312px;
+    margin: auto;
+    position: relative;
+}
+
+
+
+
+.flex {
+    display: flex;
 }

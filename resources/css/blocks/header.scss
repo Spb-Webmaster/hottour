@@ -1,0 +1,85 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00AFEF;
+
+$maxWidth: 1440;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin family {
+    font-family: 'Source Sans Pro', "Arial Narrow", Arial, Helvetica, sans-serif;
+}
+
+
+.background_282828 {
+    background: #282828;
+    color: #ffffff;
+}
+
+.background_000000 {
+    background: #000000;
+    color: #ffffff;
+}
+
+
+.menu_social {
+    justify-content: space-between;
+    height: 40px;
+
+    // .menu_social__menu
+    &__menu {
+    }
+
+    // .menu_social__social
+    &__social {
+        display: flex;
+        justify-content: flex-end;
+
+    }
+}
+
+.header_bottom {
+    padding: 15px 0;
+    background-color: #4a5568;
+    .logo {
+        padding: 0 20px 0 0;
+    }
+
+
+    // .hb__left
+    .hb__left {
+        display: flex;
+        min-height: 52px;
+        align-items: center;
+        width: 50%;
+
+    }
+
+    // .hb__social
+    .hb__social {
+
+    }
+
+    // .hb__right
+    .hb__right {
+        display: flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+    }
+    .hb__one {
+        display: flex;
+        min-height: 52px;
+        align-items: center;
+    }
+    .hb__one {
+
+    }
+}

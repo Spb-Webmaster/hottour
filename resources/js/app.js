@@ -1,17 +1,14 @@
 import './bootstrap';
-import { Fancybox } from "@fancyapps/ui";
+import {Fancybox} from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './fancybox';
-
-
-// core version + navigation, pagination modules:
-import Swiper from 'swiper';
-import {Navigation, Pagination} from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
+// IMask to add input masks support
+import IMask from 'imask';
+window.IMask = IMask;
 
 
 import './translate/translate.js';
-import './swiper';
+import './imask';
+import './select';
+import './ajax';
+import './script';

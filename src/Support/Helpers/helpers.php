@@ -1,10 +1,5 @@
 <?php
 
-use App\Mail\SendMessage;
-use App\Models\Manager;
-use App\Models\MoonshineModuleText;
-use App\Models\MoonshineModuleYoutube;
-use App\Models\Project;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -14,8 +9,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Support\Flash\Flash;
-use Support\Manager\CardManager;
 use Support\Module\Module;
+use Illuminate\Support\Facades\Route;
+
 
 if (!function_exists('flash')) {
 
@@ -71,6 +67,21 @@ if (!function_exists('format_phone')) {
             return $to;
         }
         return '';
+    }
+}
+
+
+if (!function_exists('sity')) {
+
+    function sity($value): string
+    {
+        foreach (config('selects.data_sity') as $k => $v)
+        {
+            if($value == $k) {
+                return $v['text'];
+            }
+        }
+       return $value;
     }
 }
 
@@ -272,4 +283,23 @@ if (!function_exists('ext')) {
         return $result;
     }
 }
+
+if (!function_exists('active_link')) {
+    function active_link(string|array $names, string $class = 'active'): string|null
+    {
+
+
+        if (is_string($names)) {
+            $names = [$names];
+        }
+        return Route::is($names) ? $class : null;
+    }
+}if (!function_exists('active_linkMenu')) {
+    function active_linkMenu(string|array $names, string $class = 'active'): string|null
+    {
+
+        return ($names == url()->full() ) ? $class : null;
+    }
+}
+
 
