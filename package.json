@@ -11,7 +11,11 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@fancyapps/ui": "^5.0.28",
+        "@fontsource/philosopher": "^5.0.8",
+        "@fontsource/source-sans-pro": "^5.0.8",
         "imask": "^7.3.0",
-        "sass": "^1.70.0"
+        "sass": "^1.70.0",
+        "swiper": "^10.3.1"
     }
 }

@@ -1,4 +1,4 @@
-<div class="errorBlade">
+<div {{ $attributes->class(['errorBlade']) }}>
 {{ $slot }}
 </div>
 

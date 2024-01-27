@@ -294,7 +294,9 @@ if (!function_exists('active_link')) {
         }
         return Route::is($names) ? $class : null;
     }
-}if (!function_exists('active_linkMenu')) {
+}
+
+if (!function_exists('active_linkMenu')) {
     function active_linkMenu(string|array $names, string $class = 'active'): string|null
     {
 

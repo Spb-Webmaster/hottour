@@ -36,8 +36,13 @@ $(document).ready(function () {
         $(this).trigger('checkval');
     });
 
-    /* маска */
-    // $('.phone').inputmask('9(999)-999-9999');
-    /* маска */
+    /* удаление  рамки при error */
+    $('input[type="text"], input[type="date"], input[type="password"], input[type="email"]').focus(
+        function(){
+            $(this).parents('.text_input').find('.errorBlade').text('');
+            $(this).removeClass('_is-error');
+        }
+    );
+    /* удаление рамки при error */
 
 });

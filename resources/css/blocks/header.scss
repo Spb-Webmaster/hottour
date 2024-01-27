@@ -25,6 +25,8 @@ $maxWidth: 1440;
 .background_000000 {
     background: #000000;
     color: #ffffff;
+    position: relative;
+    z-index: 30;
 }
 
 
@@ -46,7 +48,6 @@ $maxWidth: 1440;
 
 .header_bottom {
     padding: 15px 0;
-    background-color: #4a5568;
     .logo {
         padding: 0 20px 0 0;
     }
@@ -81,5 +82,27 @@ $maxWidth: 1440;
     }
     .hb__one {
 
+    }
+}
+.enter_to_website {
+    .enter_to_website__a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: #fff;
+        border-radius: 25px;
+        height: 48px;
+        padding: 0 6px;
+        color: $color;
+        text-decoration: none;
+    }
+    .sp__kab {
+        position: relative;
+        bottom: 2px;
+        font-weight: 600;
+        color: $color;
+        text-decoration: none;
+        margin: 0 5px 0 12px;
+        display: block;
     }
 }

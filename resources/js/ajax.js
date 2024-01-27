@@ -1,10 +1,25 @@
-function loader() {
-    $('.wrapper_loader ').css('display', 'flex');
+function loader(Parents) {
+    Parents.find('.wrapper_loader ').css('display', 'flex');
 }
-function loaderHide() {
-    $('.wrapper_loader ').css('display', 'none');
+function loaderHide(Parents) {
+    Parents.find('.wrapper_loader ').css('display', 'none');
 }
+function printErrorMsg (Parents, msg) {
+    $.each( msg, function( key, value ) {
 
+        console.log(key);
+        console.log(' -- ');
+        console.log(msg);
+
+        Parents.find('.error_'+key).text(value);
+        Parents.find('input.'+key).addClass('_is-error');
+    });
+}
+function url()
+{
+    return  window.location.href;
+
+}
 //todo:jquery
 $(document).ready(function () {
 
@@ -34,7 +49,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $('.h_s_sity_js').text(response.sity);
-                console.log(response.sity);
+               // console.log(response.sity);
             }
         });
 
@@ -45,13 +60,13 @@ $(document).ready(function () {
     /* order call */
     $('body').on('click', '.order_call_js', function (event) {
 
-        var Parents = $(this).parents('.F_form_order_call');
-        var Phone = Parents.find('.input[name="call_phone"]').val();
-        var Sity =  Parents.find('[name="call_sity"]').val();
-        var Crm = Parents.find('#CallCrm').val();
+        var Parents = $(this).parents('.F_form');
+        var Phone = Parents.find('.input[name="phone"]').val();
+        var Sity =  Parents.find('[name="sity"]').val();
+        var Crm = Parents.find('.input[name="crm"]').val();
         var Token = Parents.data('token');
-        var This = $(this);
-        loader();
+
+        loader(Parents);
 
         $.ajax({
             url: "/send-mail/order-call",
@@ -60,20 +75,75 @@ $(document).ready(function () {
                 "_token": Token,
                 "crm": Crm,
                 "phone": Phone,
-                "sity": Sity
+                "sity": Sity,
+                "url": url(),
             },
             success: function (response) {
-                setTimeout(function() {
-                    $('.wrapper_loader ').css('display', 'none');
-                    Parents.find('.F_form__body').hide();
-                    Parents.find('.F_responce').show();
-                }, 1000);
-                console.log(response);
+
+                if(response.error) {
+                    setTimeout(function () {
+                    Parents.find('.wrapper_loader ').css('display', 'none');
+                    printErrorMsg(Parents, response.error);
+                    }, 1000);
+
+
+                } else {
+                    setTimeout(function () {
+                        Parents.find('.wrapper_loader ').css('display', 'none');
+                        Parents.find('.F_form__body').hide();
+                        Parents.find('.F_responce').show();
+                    }, 1000);
+                }
+              //  console.log(response);
+
             }
         });
 
     });
 
     /* order call */
+
+    /* order call  (mini форма на главной)*/
+    $('body').on('click', '.order_mini_js', function (event) {
+
+        var Parents = $(this).parents('.F_form');
+        var Name = Parents.find('.input[name="name"]').val();
+        var Phone = Parents.find('.input[name="phone"]').val();
+        var Email = Parents.find('.input[name="email"]').val();
+        var Crm = Parents.find('.input[name="crm"]').val();
+        var Token = Parents.data('token');
+        loader(Parents);
+
+        $.ajax({
+            url: "/send-mail/order-mini",
+            method: "POST",
+            data: {
+                "_token": Token,
+                "crm": Crm,
+                "name": Name,
+                "phone": Phone,
+                "email": Email,
+                "url": url(),
+            },
+            success: function (response) {
+                if(response.error) {
+                    setTimeout(function () {
+                    Parents.find('.wrapper_loader ').css('display', 'none');
+                    printErrorMsg(Parents, response.error);
+                    }, 1000);
+
+                } else {
+                    setTimeout(function () {
+                        Parents.find('.wrapper_loader ').css('display', 'none');
+                        Parents.find('.F_form__body').hide();
+                        Parents.find('.F_responce').show();
+                    }, 1000);
+                }
+            }
+        });
+
+    });
+
+    /* order call  (mini форма на главной)*/
 
 });

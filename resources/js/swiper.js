@@ -12,15 +12,15 @@ new Swiper('.mainswiper', {
 });
 
 // init swiper_researches:
-new Swiper('.swiper_researches', {
+new Swiper('.swiper_hottours', {
     // configure Swiper to use modules
     modules: [Navigation, Pagination],
-    slidesPerView: 4,
+    slidesPerView: "auto",
     spaceBetween: 30,
     loop: true,
     navigation: {
-        nextEl: ".swiper-button-next-swiper_researches",
-        prevEl: ".swiper-button-prev-swiper_researches",
+        nextEl: ".swiper-button-next-swiper_hottours",
+        prevEl: ".swiper-button-prev-swiper_hottours",
     },
     breakpoints: {
         // mobile + tablet - 320-990
@@ -35,21 +35,23 @@ new Swiper('.swiper_researches', {
         },
         // desktop >= 991
         991: {
-            slidesPerView: 4
+            slidesPerView: "auto",
+            loop: true,
+
         }
     }
 });
 
 // init swiper_expertise:
-new Swiper('.swiper_expertise', {
+new Swiper('.swiper_populars', {
     // configure Swiper to use modules
     modules: [Navigation, Pagination],
     slidesPerView: 4,
     spaceBetween: 30,
     loop: true,
     navigation: {
-        nextEl: ".swiper-button-next-swiper_expertise",
-        prevEl: ".swiper-button-prev-swiper_expertise",
+        nextEl: ".swiper-button-next-swiper_populars",
+        prevEl: ".swiper-button-prev-swiper_populars",
     },
     breakpoints: {
         // mobile + tablet - 320-990
@@ -73,16 +75,16 @@ new Swiper('.swiper_expertise', {
 
 
 
-// init swiper_shop_projects__item:
-new Swiper('.swiper_shop_projects__item', {
+// init swiper_researches:
+new Swiper('.swiper_responce', {
     // configure Swiper to use modules
     modules: [Navigation, Pagination],
-    slidesPerView: 3,
+    slidesPerView: "auto",
     spaceBetween: 30,
     loop: true,
     navigation: {
-        nextEl: ".swiper-button-next-swiper_shop_projects__item",
-        prevEl: ".swiper-button-prev-swiper_shop_projects__item",
+        nextEl: ".swiper-button-next-swiper_responce",
+        prevEl: ".swiper-button-prev-swiper_responce",
     },
     breakpoints: {
         // mobile + tablet - 320-990
@@ -97,7 +99,9 @@ new Swiper('.swiper_shop_projects__item', {
         },
         // desktop >= 991
         991: {
-            slidesPerView: 3
+            slidesPerView: "auto",
+            loop: true,
+
         }
     }
 });

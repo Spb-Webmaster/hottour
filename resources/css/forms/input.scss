@@ -71,5 +71,16 @@ input[type=text].input, input[type=email].input, input[type=date].input, input[t
     position: relative;
 }
 .text_input:last-child {
-    padding: 5px 0 0 0;
+    padding: 8px 0 0 0;
 }
+/* ошибки */
+._is-error {
+    border: 1px solid $colorRed!important;
+}
+.errorBlade  {
+    position: absolute;
+    top: 0;
+    background: #fff;
+    left: 10px;
+}
+/* ошибки */

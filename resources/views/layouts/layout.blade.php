@@ -20,18 +20,15 @@
 <body>
 <div class="wrapper">
     <x-message.message/>
-
     @include('include.header')
     <x-menu.menu/>
-
-
     @yield('content')
-    {{--    @include('include.footer')
-        @include('include.dashboardMobile')--}}
+    @include('include.footer')
 
 </div><!--.wrapper-->
 
-@include('html.modals.top_order_call')
+@include('html.temp_forms.order_call')
+@include('html.modals.gr')
 <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
 
 </body>

@@ -1,8 +1,11 @@
 //todo:jquery
 $(document).ready(function () {
-    const element = document.getElementById('CallPhone');
+    const phone = document.querySelectorAll('input[name="phone"]');
     const maskOptions = {
-        mask: '+{0}(000)000-00-00'
+        mask: '+{0}(000)000-00-00',
+      //  lazy: false
     };
-    const mask = IMask(element, maskOptions);
+    for (var i = 0; i < phone.length; i++){
+        const mask = new IMask(phone[i], maskOptions);
+    }
 })

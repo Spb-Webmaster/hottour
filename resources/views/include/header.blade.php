@@ -18,7 +18,10 @@
 
             <div class="hb__left">
                 <div class="hb__logo">
-                    @include('include.logo.top_logo')
+                    <x-logo.logo
+                    width="234"
+                    height="42"
+                    />
                 </div>
                 <div class="hb__social">
                     @include('include.icons.top_social_big')

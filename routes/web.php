@@ -24,6 +24,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(AjaxController::class)->group(function () {
 
     Route::post('/send-mail/order-call', 'OrderCall');
+    Route::post('/send-mail/order-mini', 'OrderMini');
     Route::post('/set-sity/city-action', 'sity');
 
 });

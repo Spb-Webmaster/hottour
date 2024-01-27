@@ -1,13 +1,33 @@
 @import "@fontsource/source-sans-pro";
 @import "@fontsource/source-sans-pro/400.css";
 @import "@fontsource/source-sans-pro/400-italic.css";
+@import "@fontsource/source-sans-pro/300.css";
+@import "@fontsource/source-sans-pro/300-italic.css";
+@import "@fontsource/source-sans-pro/600.css";
+@import "@fontsource/source-sans-pro/cyrillic-600-italic.css";
+@import "@fontsource/philosopher";
+@import "@fontsource/philosopher/400.css";
+@import "@fontsource/philosopher/400-italic.css";
+@import "@fontsource/philosopher/700.css";
 @import "./fancybox.scss";
 
+@import "./module/news/index_news.scss";
+@import "./module/index_text/index_text.scss";
+@import "./module/hottours/hottours.scss";
+@import "./module/response/response.scss";
+@import "./module/popular_country/popular_country.scss";
+@import "./module/popular/popular.scss";
+@import "./module/video/video.scss";
+@import "./module/plane/plane.scss";
+@import "./module/questions/questions.scss";
 @import "./forms/button.scss";
 @import "./forms/input.scss";
 @import "./forms/select.css";
-@import "./translate/translate.css";
 @import "./forms/form_modal/form_modal.scss";
+@import "./forms/form_modal/qr_modal.scss";
+@import "./forms/order_mini.scss";
+@import "./forms/loader.css";
+@import "./translate/translate.css";
 @import "./pagination.scss";
 @import "./social/social.scss";
 @import "./social/icons-base64.scss";
@@ -15,7 +35,11 @@
 @import "./general-style/paddind.scss";
 @import "./menu/menu.scss";
 @import "./selectsity/select_sity.scss";
+@import "./blocks/mobile_app.scss";
+@import "./blocks/quality_servise.scss";
+@import "./blocks/search.scss";
 @import "./blocks/header.scss";
+@import "./blocks/footer.scss";
+@import "./swiper.scss";
 @import "./style.scss";
-@import "./forms/loader.css";
 
