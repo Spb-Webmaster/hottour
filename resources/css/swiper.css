@@ -1,0 +1,38 @@
+.swiper_hottours .swiper-slide {
+  max-width: 317px;
+  min-height: 50px; }
+
+.swiper_responce .swiper-slide {
+  max-width: 290px;
+  min-height: 50px; }
+
+.p_nav {
+  display: flex; }
+
+.r_nav {
+  display: flex; }
+
+.swiper-next, .swiper-prev {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #EF533F;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  transition: 0.3s;
+  margin: 0 10px; }
+  .swiper-next span, .swiper-prev span {
+    font-size: 35px;
+    position: relative;
+    top: -3px;
+    color: #EF533F; }
+
+.swiper-next:hover, .swiper-prev:hover {
+  background: #EF533F; }
+  .swiper-next:hover span, .swiper-prev:hover span {
+    color: #ffffff; }
+
+/*# sourceMappingURL=swiper.css.map */

@@ -1,0 +1,83 @@
+.nav__pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 36px;
+  width: 100%;
+  padding: 20px 0 0 0; }
+  .nav__pagination .pagination {
+    display: flex;
+    justify-content: center;
+    font-size: 18px; }
+    .nav__pagination .pagination li {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #ddd;
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      border-radius: 50%;
+      margin: 0 6px;
+      position: relative; }
+      .nav__pagination .pagination li a, .nav__pagination .pagination li span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+        width: 36px;
+        text-decoration: none;
+        position: relative;
+        top: -1.8px; }
+  .nav__pagination li.disabled {
+    display: none; }
+  .nav__pagination i {
+    font-style: normal; }
+
+.nav__pagination_previous {
+  width: 100px; }
+  .nav__pagination_previous li {
+    width: 100px;
+    height: 36px;
+    background: #fff;
+    border-radius: 8px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #ddd; }
+    .nav__pagination_previous li a {
+      color: #667085;
+      text-decoration: none;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      position: relative; }
+      .nav__pagination_previous li a img {
+        margin: 0 8px;
+        position: relative;
+        top: 1px; }
+
+.nav__pagination_next {
+  width: 100px; }
+  .nav__pagination_next li {
+    width: 100px;
+    height: 36px;
+    background: #fff;
+    border-radius: 8px;
+    align-items: center;
+    border: 1px solid #ddd; }
+    .nav__pagination_next li a {
+      color: #667085;
+      text-decoration: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      position: relative; }
+      .nav__pagination_next li a img {
+        margin: 0 8px;
+        position: relative;
+        top: 1px; }
+
+/*# sourceMappingURL=pagination.css.map */
