@@ -66,7 +66,9 @@ new Swiper('.swiper_populars', {
         },
         // desktop >= 991
         991: {
-            slidesPerView: 4
+            slidesPerView: 4,
+            loop: true,
+
         }
     }
 });
@@ -100,6 +102,38 @@ new Swiper('.swiper_responce', {
         // desktop >= 991
         991: {
             slidesPerView: "auto",
+            loop: true,
+
+        }
+    }
+});
+
+
+//
+new Swiper('.swiper_banner', {
+    // configure Swiper to use modules
+    modules: [Navigation, Pagination],
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next-swiper_banner",
+        prevEl: ".swiper-button-prev-swiper_banner",
+    },
+    breakpoints: {
+        // mobile + tablet - 320-990
+        320: {
+            slidesPerView: 1
+        },
+        568: {
+            slidesPerView: 1
+        },
+        742: {
+            slidesPerView: 1,
+
+        },
+        // desktop >= 991
+        991: {
+
+            slidesPerView: 1,
             loop: true,
 
         }

@@ -19,3 +19,4 @@ import './imask';
 import './select';
 import './ajax';
 import './script';
+import './mobile';

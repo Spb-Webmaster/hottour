@@ -66,3 +66,25 @@ $maxWidth: 1440;
     }
 }
 
+@media (max-width: 793px) {
+    .button_big {
+        height: 46px;
+        font-size: 16px;
+
+
+    }
+    .button_normal {
+        height: 36px;
+        font-size: 15px;
+
+
+    }
+    .button_small {
+
+    }
+    .button_mini {
+
+    }
+}
+
+

@@ -36,4 +36,13 @@
     color: #00A357;
     background: #fff; }
 
+@media (max-width: 793px) {
+  .button_big {
+    height: 46px;
+    font-size: 16px; }
+
+  .button_normal {
+    height: 36px;
+    font-size: 15px; } }
+
 /*# sourceMappingURL=button.css.map */

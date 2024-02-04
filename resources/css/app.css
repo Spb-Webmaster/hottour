@@ -11,6 +11,7 @@
 @import "@fontsource/philosopher/700.css";
 @import "./fancybox.scss";
 
+@import "./module/banner/banner.scss";
 @import "./module/news/index_news.scss";
 @import "./module/index_text/index_text.scss";
 @import "./module/hottours/hottours.scss";
@@ -42,4 +43,5 @@
 @import "./blocks/footer.scss";
 @import "./swiper.scss";
 @import "./style.scss";
+@import "./media.scss";
 

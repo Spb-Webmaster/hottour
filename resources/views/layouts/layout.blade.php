@@ -13,19 +13,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
-    <title>@yield('title', config('datastorage.title'))</title>
-    <meta name="description" content="@yield('description',  config('datastorage.description'))"/>
-    <meta name="keywords" content="@yield('keywords',  config('datastorage.keywords'))"/>
+    <title>@yield('title', config('seo.seo.title'))</title>
+    <meta name="description" content="@yield('description',  config('seo.seo.description'))"/>
+    <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>
 </head>
 <body>
-<div class="wrapper">
-    <x-message.message/>
-    @include('include.header')
-    <x-menu.menu/>
-    @yield('content')
-    @include('include.footer')
+<div class="wrapper_">
+    <div class="content_">
+        @include('html.mobile.top')
+        <x-message.message/>
+        @include('include.header', ['route' => route_name()]) {{--{{ 'Для стиля главной' }}--}}
+        <x-menu.menu/>
+        @yield('content')
+    </div><!--.content_-->
+</div><!--.wrapper_-->
 
-</div><!--.wrapper-->
+@include('include.footer')
+@include('html.mobile.bottom')
 
 @include('html.temp_forms.order_call')
 @include('html.modals.gr')

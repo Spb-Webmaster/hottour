@@ -296,11 +296,31 @@ if (!function_exists('active_link')) {
     }
 }
 
+
 if (!function_exists('active_linkMenu')) {
     function active_linkMenu(string|array $names, string $class = 'active'): string|null
     {
 
         return ($names == url()->full() ) ? $class : null;
+    }
+}
+
+
+if (!function_exists('route_name')) {
+    function route_name():string|null
+    {
+
+        return Route::currentRouteName();
+    }
+}
+
+if (!function_exists('rusdate')) {
+    function rusdate($timestump):string|null
+    {
+        $month = [1=>"Янв",2=> "Фев",3=>"Мар",4=>"Апр",5=>"Май",6=>"Июн",7=>"Июл",8=>"Авг",9=>"Сен",10=>"Окт",11=>"Ноя",12=>"Дек"];
+        $return = date('d', $timestump);
+        $return .= " " . $month[date('n', $timestump)];
+        return $return;
     }
 }
 

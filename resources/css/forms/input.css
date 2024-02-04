@@ -62,5 +62,9 @@ input[type=text].input, input[type=email].input, input[type=date].input, input[t
   left: 10px; }
 
 /* ошибки */
+@media (max-width: 793px) {
+  .text_input .button {
+    height: 46px !important;
+    font-size: 16px !important; } }
 
 /*# sourceMappingURL=input.css.map */

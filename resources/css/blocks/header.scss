@@ -27,6 +27,17 @@ $maxWidth: 1440;
     color: #ffffff;
     position: relative;
     z-index: 30;
+
+}
+
+.background_282828 {
+    background: #282828;
+    color: #ffffff;
+    position: relative;
+    &.home {
+        background: none;
+        color: inherit;
+    }
 }
 
 

@@ -68,10 +68,13 @@
             </div>
             <div class="f_flextop__right">
                 <div class="fr_1 f_social">
+                    <div class="f_social__top">
                     <div class="f_social__label">
                         {{__('Мы в социальных сетях')}}
                     </div>
                     @include('include.icons.top_social_big')
+                    </div>
+                    <div class="f_social__bottom">
                     <div class="f_social__mobileapp">
                         {{__('Скачайте наше мобильное приложение')}}
                     </div>
@@ -79,6 +82,7 @@
                         width="141"
                         height="40"
                     />
+                    </div>
                 </div>
             </div>
         </div>

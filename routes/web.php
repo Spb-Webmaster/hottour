@@ -2,18 +2,9 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Tourvisor\TourvisorController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::controller(HomeController::class)->group(function () {
 
@@ -26,6 +17,13 @@ Route::controller(AjaxController::class)->group(function () {
     Route::post('/send-mail/order-call', 'OrderCall');
     Route::post('/send-mail/order-mini', 'OrderMini');
     Route::post('/set-sity/city-action', 'sity');
+
+});
+Route::controller(TourvisorController::class)->group(function () {
+
+    Route::get('/find-tour', 'page')->name('find-tour');
+    Route::post('/find-tour/search', 'search');
+ //   Route::match(['get', 'post'],'/tourvisor/ajax.php', 'ajax');
 
 });
 

@@ -15,6 +15,8 @@
     .h_sw .h_sw__flex p {
       color: #667085;
       font-size: 20px; }
+    .h_sw .h_sw__flex .h_sw__right .h_sw__search {
+      padding: 27px 0 0 0; }
 
 .hot_item {
   border-radius: 12px;

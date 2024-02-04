@@ -12,7 +12,8 @@
 
             </div><!--.header_top-->
         </div>
-    </div>
+    </div><!--.background_000000-->
+    <div class="background_282828 {{ $route }}">
     <div class="block">
         <div class="hb header_bottom flex">
 
@@ -46,4 +47,5 @@
 
         </div><!--.header_bottom-->
     </div>
+    </div><!--.background_282828-->
 </header>

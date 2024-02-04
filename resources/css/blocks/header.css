@@ -8,6 +8,14 @@
   position: relative;
   z-index: 30; }
 
+.background_282828 {
+  background: #282828;
+  color: #ffffff;
+  position: relative; }
+  .background_282828.home {
+    background: none;
+    color: inherit; }
+
 .menu_social {
   justify-content: space-between;
   height: 40px; }
