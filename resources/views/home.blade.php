@@ -46,5 +46,7 @@
         <section class="z-index-20 pad_t16  ">
             @include('include.module.index_text')
         </section>
+
+
     </main>
 @endsection

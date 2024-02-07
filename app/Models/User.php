@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Support\Traits\Models\HasThumbnail;
 
 class User extends Authenticatable
 {
+    use HasThumbnail;
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -42,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected function thumbnailDir(): string
+    {
+          return 'images';
+    }
 }

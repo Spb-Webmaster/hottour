@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Support\Flash\Flash;
 use Support\Module\Module;
 use Illuminate\Support\Facades\Route;
@@ -36,17 +37,22 @@ if (!function_exists('cache_clear ')) {
     {
 
 
-        if (!is_null($model)) {
+     /*   if (!is_null($model)) {
             Cache::forget($model->position); // для модулей
-        }
-        Cache::forget('list_articles');
-        Cache::forget('list_articles_sorting');
-        Cache::forget('category_composer');
-        Cache::forget('team');
-        Cache::forget('moonshine_module_text');
-        Cache::forget('teaser_category');
-        Cache::forget('cities');
-        Cache::forget('social_network');
+        }*/
+        Cache::forget('top_menu');
+        Cache::forget('countries');
+
+        Cache::forget('list_countries');
+        Cache::forget('hot_categories_relation');
+        Cache::forget('list_countries_all');
+        Cache::forget('sub_countries');
+
+        Cache::forget('excursion');
+        Cache::forget('hotel');
+        Cache::forget('info');
+        Cache::forget('resort');
+
 
     }
 }
@@ -301,7 +307,8 @@ if (!function_exists('active_linkMenu')) {
     function active_linkMenu(string|array $names, string $class = 'active'): string|null
     {
 
-        return ($names == url()->full() ) ? $class : null;
+       // dump(url()->current());
+        return ($names == url()->current() ) ? $class : null;
     }
 }
 
@@ -314,6 +321,25 @@ if (!function_exists('route_name')) {
     }
 }
 
+
+if (!function_exists('shortcode')) {
+    function shortcode($html)
+    {
+
+
+        preg_match_all("/\{(.+?)\}/", $html, $matches);
+        if($matches[1]) {
+            foreach ($matches[1] as $match) {
+                //dd($match);
+                $html = str_replace('{'.$match.'}', '<embed style="width: 100%" width="100%" height="480" src="https://www.youtube.com/embed/'.$match.'" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></embed>', $html);
+            }
+            //  return implode(',', $matches[1]);
+return $html;
+        }
+        return  $html;
+     }
+}
+
 if (!function_exists('rusdate')) {
     function rusdate($timestump):string|null
     {
@@ -323,5 +349,55 @@ if (!function_exists('rusdate')) {
         return $return;
     }
 }
+
+
+if (!function_exists('intervention')) {
+    function intervention(string $size, string $image, string $method = 'fit')
+    {
+        $dir = 'countries';
+       // $method = 'fit'; // 'resize|crop|fit'
+        $file = File::basename($image);
+
+       // dd($image);
+        abort_if(!in_array($size, config('thumbnail.allowed_sizes', [])),
+            403,
+            'size not allowed'
+        );
+
+
+        $storage = Storage::disk('intervention');
+
+
+        $realPath = $image;
+        $newDirPath = "$dir/$method/$size";
+        $resultPaht = "$newDirPath/$file";
+
+        if(!$storage->exists($newDirPath)) {
+            $storage->makeDirectory($newDirPath);
+        }
+
+
+        if(!$storage->exists($resultPaht)) {
+
+            $image = Image::make($storage->path($realPath));
+
+
+            [$w, $h] = explode('x', $size);
+
+            $image->{$method}($w, $h);
+
+            $image->save($storage->path($resultPaht));
+
+
+        }
+
+
+        return 'storage/' . $resultPaht;
+
+    }
+}
+
+
+
 
 

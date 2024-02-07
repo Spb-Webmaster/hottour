@@ -17,6 +17,8 @@ $maxWidth: 1440;
 }
 
 footer.background_292F3D {
+    position: relative;
+    z-index: 4;
     background: #292F3D;
     color: #ffffff;
     width: 100%;

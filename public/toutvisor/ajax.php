@@ -102,7 +102,7 @@ Class Ajax {
         $result = $this->api->_get($params, 'result.php');
         foreach ($result->data->result->hotel as $key => $hotel){
 
-            $hotel_result = $this->api->_get(['hotelcode'=>$hotel->hotelcode], 'hotel.php');
+            $hotel_result = $this->api->_get(['hotelcode'=>$hotel->hotelcode], 'Hotel.php');
             $result->data->result->hotel[$key]->hotels_info = $hotel_result->data->hotel;
 
             if(!empty($hotel_result->data->hotel->coord1)) {

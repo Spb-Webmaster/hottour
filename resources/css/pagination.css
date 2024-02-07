@@ -16,7 +16,7 @@
       display: flex;
       justify-content: center;
       background: #fff;
-      border-radius: 50%;
+      border-radius: 8px;
       margin: 0 6px;
       position: relative; }
       .nav__pagination .pagination li a, .nav__pagination .pagination li span {
@@ -27,7 +27,14 @@
         width: 36px;
         text-decoration: none;
         position: relative;
-        top: -1.8px; }
+        top: -1.8px;
+        color: #667085;
+        transition: 0.2s; }
+      .nav__pagination .pagination li.active, .nav__pagination .pagination li:hover {
+        background: #EF533F;
+        border: 1px solid #EF533F; }
+        .nav__pagination .pagination li.active a, .nav__pagination .pagination li.active span, .nav__pagination .pagination li:hover a, .nav__pagination .pagination li:hover span {
+          color: #fff; }
   .nav__pagination li.disabled {
     display: none; }
   .nav__pagination i {
@@ -42,7 +49,8 @@
     border-radius: 8px;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid #ddd; }
+    border: 1px solid #ddd;
+    transition: 0.2s; }
     .nav__pagination_previous li a {
       color: #667085;
       text-decoration: none;
@@ -56,6 +64,11 @@
         margin: 0 8px;
         position: relative;
         top: 1px; }
+    .nav__pagination_previous li:hover {
+      background: #EF533F;
+      border: 1px solid #EF533F; }
+      .nav__pagination_previous li:hover a, .nav__pagination_previous li:hover span {
+        color: #fff; }
 
 .nav__pagination_next {
   width: 100px; }
@@ -65,7 +78,8 @@
     background: #fff;
     border-radius: 8px;
     align-items: center;
-    border: 1px solid #ddd; }
+    border: 1px solid #ddd;
+    transition: 0.2s; }
     .nav__pagination_next li a {
       color: #667085;
       text-decoration: none;
@@ -79,5 +93,10 @@
         margin: 0 8px;
         position: relative;
         top: 1px; }
+    .nav__pagination_next li:hover {
+      background: #EF533F;
+      border: 1px solid #EF533F; }
+      .nav__pagination_next li:hover a, .nav__pagination_next li:hover span {
+        color: #fff; }
 
 /*# sourceMappingURL=pagination.css.map */

@@ -15,8 +15,10 @@ return new class extends Migration
         Schema::create('hot_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('subtitle');
             $table->string('slug')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('title_for_menu')->nullable();
+
             $table->string('img')->nullable();
             $table->string('imgflag')->nullable();
             $table->text('smalltext')->nullable();

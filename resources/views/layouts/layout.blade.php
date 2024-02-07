@@ -18,15 +18,13 @@
     <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>
 </head>
 <body>
-<div class="wrapper_">
-    <div class="content_">
+    <div class="content_ ">
         @include('html.mobile.top')
         <x-message.message/>
         @include('include.header', ['route' => route_name()]) {{--{{ 'Для стиля главной' }}--}}
         <x-menu.menu/>
         @yield('content')
     </div><!--.content_-->
-</div><!--.wrapper_-->
 
 @include('include.footer')
 @include('html.mobile.bottom')

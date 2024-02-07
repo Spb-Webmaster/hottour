@@ -2,17 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Domain\Country\QueryBuilders\HotCategoryQueryBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Support\Traits\Models\HasThumbnail;
 
 class HotCategory extends Model
 {
+    use HasThumbnail;
+
 
     protected $fillable = [
         'title',
         'subtitle',
+        'title_for_menu',
         'slug',
         'img',
         'imgflag',
@@ -37,6 +42,33 @@ class HotCategory extends Model
         return $this->belongsTo(self::class,  'hot_category_id');
     }
 
+    public function excursions():HasMany
+    {
+        return $this->hasMany(Excursion::class);
+    }
+
+    public function resorts():HasMany
+    {
+        return $this->hasMany(Resort::class);
+    }
+
+    public function hotels():HasMany
+    {
+        return $this->hasMany(Hotel::class);
+    }
+
+    public function infos():HasMany
+    {
+        return $this->hasMany(Info::class);
+    }
+
+    /**
+     * Создание метода вывода со своим HotCategoryQueryBuilder
+     */
+    public function newEloquentBuilder($query):HotCategoryQueryBuilder
+    {
+        return new HotCategoryQueryBuilder($query);
+    }
 
     protected static function boot()
     {
@@ -55,5 +87,11 @@ class HotCategory extends Model
         });
 
 
+    }
+
+
+    protected function thumbnailDir(): string
+    {
+        return 'countries';
     }
 }

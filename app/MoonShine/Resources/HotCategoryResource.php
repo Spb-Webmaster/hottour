@@ -98,6 +98,7 @@ class HotCategoryResource extends TreeResource
 
 
                                 Text::make(__('Подзаголовок'), 'subtitle'),
+                                Text::make(__('Название для внутреннего меню'), 'title_for_menu'),
                                 Image::make(__('Изображение'), 'img')
                                     ->showOnExport()
                                     ->disk(config('moonshine.disk', 'moonshine'))

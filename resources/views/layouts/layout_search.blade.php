@@ -18,7 +18,6 @@
     <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>
 </head>
 <body>
-<div class="wrapper_">
     <div class="content_">
         @include('html.mobile.top')
         <x-message.message/>
@@ -26,7 +25,6 @@
         <x-menu.menu/>
         @yield('content')
     </div><!--.content_-->
-</div><!--.wrapper_-->
 
 @include('include.footer')
 @include('html.mobile.bottom')

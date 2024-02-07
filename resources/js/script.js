@@ -2,8 +2,8 @@
 $(document).ready(function () {
 
     /**
-    * input движение label
-    * */
+     * input движение label
+     * */
     var show = 'show';
 
     $('.inputClass').each(function (index) {
@@ -12,7 +12,7 @@ $(document).ready(function () {
             label.addClass(show);
         }
     });
-    $('.inputClass').change(function(){
+    $('.inputClass').change(function () {
         let label = $(this).next('label');
         if ($(this).val() != '') {
             label.addClass(show);
@@ -38,11 +38,20 @@ $(document).ready(function () {
 
     /* удаление  рамки при error */
     $('input[type="text"], input[type="date"], input[type="password"], input[type="email"]').focus(
-        function(){
+        function () {
             $(this).parents('.text_input').find('.errorBlade').text('');
             $(this).removeClass('_is-error');
         }
     );
     /* удаление рамки при error */
 
+
+
 });
+
+
+
+
+
+
+

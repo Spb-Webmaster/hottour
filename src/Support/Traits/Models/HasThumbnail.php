@@ -8,24 +8,21 @@ use Illuminate\Support\Facades\File;
 trait HasThumbnail
 {
 
-  //  abstract protected function thumbnailDir():string;
+    abstract protected function thumbnailDir():string;
 
-    public function  makeThumbnail( string $size,  string $dir,  string $disk = 'files',  string $method = 'resize'):string
+    public function  makeThumbnail( string $size, string $file, string $method = 'resize'):string
     {
 
         return route('thumbnail', [
             'size' => $size,
-            'dir' => $dir,
+            'dir' => $this->thumbnailDir(),
             'method' => $method,
-            'disk' => $disk,
-            'file' => File::basename($this->{$this->thumbnailColumn()}),
+            'file' => File::basename($this->{$file}),
 
         ]);
+
+
     }
 
-    protected function thumbnailColumn():string
-    {
-        return 'image';
-    }
 
 }

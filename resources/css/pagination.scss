@@ -15,6 +15,7 @@ $maxWidth: 1440;
 @mixin family {
     font-family: 'Source Sans Pro', "Arial Narrow", Arial, Helvetica, sans-serif;
 }
+
 .nav__pagination {
     display: flex;
     justify-content: space-between;
@@ -37,7 +38,7 @@ $maxWidth: 1440;
             display: flex;
             justify-content: center;
             background: #fff;
-            border-radius: 50%;
+            border-radius: 8px;
             margin: 0 6px;
             position: relative;
 
@@ -50,27 +51,39 @@ $maxWidth: 1440;
                 text-decoration: none;
                 position: relative;
                 top: -1.8px;
+                color: $colorGrey;
+                transition: 0.2s;
+
 
             }
 
+            &.active, &:hover {
+                background: $colorRed;
+                border: 1px solid $colorRed;
 
+
+                a, span {
+                    color: #fff;
+
+                }
+            }
         }
 
     }
 
 
-
-
-
     li.disabled {
         display: none;
     }
+
     i {
         font-style: normal;
     }
 }
+
 .nav__pagination_previous {
-width: 100px;
+    width: 100px;
+
     li {
         width: 100px;
         height: 36px;
@@ -79,6 +92,8 @@ width: 100px;
         justify-content: flex-start;
         align-items: center;
         border: 1px solid #ddd;
+        transition: 0.2s;
+
 
         a {
             color: $colorGrey;
@@ -97,19 +112,30 @@ width: 100px;
             }
         }
 
+        &:hover {
+            background: $colorRed;
+            border: 1px solid $colorRed;
+            a, span {
+                color: #fff;
 
+            }
+
+        }
     }
 }
+
 .nav__pagination_next {
     width: 100px;
 
-    li{
+    li {
         width: 100px;
         height: 36px;
         background: #fff;
         border-radius: 8px;
         align-items: center;
         border: 1px solid #ddd;
+        transition: 0.2s;
+
 
         a {
             color: $colorGrey;
@@ -127,6 +153,14 @@ width: 100px;
                 top: 1px;
             }
         }
+        &:hover {
+            background: $colorRed;
+            border: 1px solid $colorRed;
+            a, span {
+                color: #fff;
 
+            }
+
+        }
     }
 }
