@@ -17,10 +17,15 @@ class Menu extends Model
         'sorting'
     ];
 
+    protected $casts = [
+        'params' => 'collection',
+    ];
+
     public function parent():BelongsTo
     {
         return $this->belongsTo(HotCategory::class,  'hot_category_id');
     }
+
     public function menu():BelongsTo
     {
         return $this->belongsTo(self::class);

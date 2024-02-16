@@ -15,6 +15,7 @@ use MoonShine\Decorations\Divider;
 use MoonShine\Decorations\Grid;
 use MoonShine\Decorations\Tab;
 use MoonShine\Decorations\Tabs;
+use MoonShine\Enums\ClickAction;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Relationships\BelongsTo;
@@ -39,6 +40,8 @@ class HotCategoryResource extends TreeResource
     protected string $column = 'title';
 
     protected string $sortColumn = 'sorting';
+
+    protected ?ClickAction $clickAction = ClickAction::EDIT;
 
 
     /**
@@ -71,6 +74,7 @@ class HotCategoryResource extends TreeResource
             Switcher::make('Публикация', 'published')->updateOnPreview(),
             Switcher::make('Desc', 'description'),
             Switcher::make('Key', 'keywords'),
+            Switcher::make('На главной', 'main'),
 
 
         ];
@@ -120,6 +124,7 @@ class HotCategoryResource extends TreeResource
                                     Text::make('Мета тэг (description) ', 'description'),
                                     Text::make('Мета тэг (keywords) ', 'keywords'),
                                     Switcher::make('Публикация', 'published')->default(1),
+                                    Switcher::make('На главной', 'main')->default(0),
 
                                 ]),
                                 Collapse::make('Вложенность', [
@@ -198,7 +203,7 @@ class HotCategoryResource extends TreeResource
     {
         return [
             'metatitle' => 'max:255',
-            'description' => 'max:255',
+            'description' => 'max:512',
             'keywords' => 'max:512',
         ];
     }

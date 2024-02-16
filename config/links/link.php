@@ -8,5 +8,7 @@ return [
     'about' => 'o-nas',
     'useful' => 'poleznoe',
     'contacts' => 'kontakty',
+    'dump' => 'poleznoe',
+    'dump2' => 'o-nas',
 ];
 

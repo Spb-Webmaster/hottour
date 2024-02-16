@@ -11,6 +11,13 @@
     display: none;
 
 }
+.wrapper_loader.active {
+    background:#949491;
+    display: flex;
+
+}
+
+
 .br_12 {
     border-radius: 12px;
 }
@@ -56,4 +63,23 @@
     100% {
         box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
     }
+}
+
+
+
+.loader_wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+}
+.loader_wrapper.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 11;
 }

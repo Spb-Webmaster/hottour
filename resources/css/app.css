@@ -29,8 +29,10 @@
 @import "./forms/order_mini.scss";
 @import "./forms/loader.css";
 @import "./hotcategory/temp_img/templates.scss";
+@import "./hotcategory/temp_img_tree/templates.scss";
 @import "./hotcategory/temp_img_text/templates.scss";
 @import "./hotcategory/fullpage.scss";
+@import "./hotcategory/fullpage_hotel.scss";
 @import "./translate/translate.css";
 @import "./pagination.scss";
 @import "./social/social.scss";
@@ -44,6 +46,7 @@
 @import "./blocks/search.scss";
 @import "./blocks/header.scss";
 @import "./blocks/footer.scss";
+@import "./contacts/contacts.scss";
 @import "./swiper.scss";
 @import "./style.scss";
 @import "./media.scss";

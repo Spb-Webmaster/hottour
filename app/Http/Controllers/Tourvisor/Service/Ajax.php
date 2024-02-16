@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Tourvisor\Service;
+use Illuminate\Http\Request;
 
 class Ajax
 {
@@ -112,6 +113,10 @@ class Ajax
         }
         return $result;
     }
+
+
+
+
 }
 
 

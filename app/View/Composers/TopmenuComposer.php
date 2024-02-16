@@ -2,7 +2,6 @@
 
 namespace App\View\Composers;
 
-use App\Models\HotCategory;
 use App\Models\Menu;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;

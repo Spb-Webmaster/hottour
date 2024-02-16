@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('url')->unique();
             $table->string('title')->nullable();
-            $table->string('metatitle')->nullable();
-            $table->string('description')->nullable();
-            $table->string('keywords')->nullable();
+            $table->text('metatitle')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
             $table->json('params')->nullable();
             $table->text('seotext')->nullable();
             $table->timestamps();

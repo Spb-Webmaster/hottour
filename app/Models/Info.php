@@ -6,11 +6,9 @@ use Domain\Info\QueryBuilders\InfoQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Support\Traits\Models\HasThumbnail;
 
 class Info extends Model
 {
-    use HasThumbnail;
 
 
     protected $fillable = [
@@ -34,6 +32,10 @@ class Info extends Model
         'description',
         'keywords',
         'sorting'
+    ];
+
+    protected $casts = [
+        'params' => 'collection',
     ];
 
     public function parent():BelongsTo
@@ -68,8 +70,4 @@ class Info extends Model
 
     }
 
-    protected function thumbnailDir(): string
-    {
-        return 'infos';
-    }
 }

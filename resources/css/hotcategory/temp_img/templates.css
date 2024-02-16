@@ -9,15 +9,15 @@
   padding: 24px 24px 16px 0; }
   .hbox__top .breadcrumb {
     min-height: 30px; }
-  .hbox__top h1, .hbox__top h2, .hbox__top h3 {
+  .hbox__top .h1, .hbox__top h1, .hbox__top h2, .hbox__top h3 {
     font-family: "Philosopher", "Arial Narrow", Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 48px;
     line-height: 1.1em;
     padding: 10px 0 10px 0; }
-    .hbox__top h1 span, .hbox__top h2 span, .hbox__top h3 span {
+    .hbox__top .h1 span, .hbox__top h1 span, .hbox__top h2 span, .hbox__top h3 span {
       position: relative; }
-      .hbox__top h1 span img, .hbox__top h2 span img, .hbox__top h3 span img {
+      .hbox__top .h1 span img, .hbox__top h1 span img, .hbox__top h2 span img, .hbox__top h3 span img {
         border-radius: 8px;
         position: relative;
         top: 3px;

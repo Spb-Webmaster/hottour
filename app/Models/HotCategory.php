@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Support\Traits\Models\HasThumbnail;
 
 class HotCategory extends Model
 {
-    use HasThumbnail;
 
 
     protected $fillable = [
@@ -36,10 +34,18 @@ class HotCategory extends Model
         'keywords',
         'sorting'
     ];
+    protected $casts = [
+        'params' => 'collection',
+    ];
 
     public function parent():BelongsTo
     {
         return $this->belongsTo(self::class,  'hot_category_id');
+    }
+
+    public function child():HasMany
+    {
+        return $this->hasMany(self::class,  'hot_category_id');
     }
 
     public function excursions():HasMany
@@ -90,8 +96,4 @@ class HotCategory extends Model
     }
 
 
-    protected function thumbnailDir(): string
-    {
-        return 'countries';
-    }
 }

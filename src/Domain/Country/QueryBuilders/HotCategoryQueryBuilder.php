@@ -14,6 +14,14 @@ class HotCategoryQueryBuilder extends Builder
             ->orderBy('sorting');
 
     }
+    public function get_countries_for_main()
+    {
+        return $this->where('published', 1)
+            ->where('hot_category_id', null)
+            ->where('main', 1)
+            ->orderBy('sorting');
+
+    }
     public function get_country($slug)
     {
         return $this->where('published', 1)

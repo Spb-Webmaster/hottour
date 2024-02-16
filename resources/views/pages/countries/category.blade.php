@@ -1,7 +1,9 @@
 @extends('layouts.layout')
-@section('title', ($seo_title)??null)
-@section('description', ($seo_description)??null)
-@section('keywords', ($seo_keywords)??null)
+<x-seo.meta
+    title="{{($hot_category->metatitle)?:$hot_category->title}}"
+    description="{{$hot_category->description}}"
+    keywords="{{$hot_category->keywords}}"
+/>
 @section('content')
     <main class="page_site background_f7f7f7">
         <div class="block countries height_100">
@@ -12,8 +14,7 @@
                         <div class="hbox__top pad_b1">
                             <x-breadcrumb.breadcrumb>
                                 <li><a href="{{ route('countries') }}">{{__('Страны')}}</a></li>
-                                <li><a href="{{asset(route('countries')).'/'. $country->slug}}">{{$country->title}}</a>
-                                </li>
+                                <li><a href="{{asset(route('countries')).'/'. $country->slug}}">{{$country->title}}</a></li>
                                 <li><span>{{$hot_category->title}}</span></li>
                             </x-breadcrumb.breadcrumb>
 
@@ -65,10 +66,10 @@
                             </div>
                         @endif
 
-                        @if($hot_category->pageimg)
+                        @if($hot_category->pageimg1)
                             <div class="pageimg pad_t16 pad_b16">
 
-                                <img src="{{ asset(intervention('892x516', $hot_country->pageimg)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $hot_category->pageimg1)) }}" width="892" height="516" loading="lazy"
                                      alt="{{$hot_category->title}}">
                             </div>
                         @endif
@@ -81,7 +82,7 @@
 
                         @if($hot_category->pageimg2)
                             <div class="pageimg2 pad_t16 pad_b16">
-                                <img src="{{ asset(intervention('892x516', $hot_country->pageimg)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $hot_category->pageimg)) }}" width="892" height="516" loading="lazy"
                                      alt="{{ ($hot_category->subtitle)?: $hot_category->title }}">
                             </div>
                         @endif
@@ -106,11 +107,11 @@
                             @endif
 
                             @if(count($hotels))
-                                @include('pages.countries.partial.resorts')
+                                @include('pages.countries.partial.hotels')
                             @endif
 
                             @if(count($infos))
-                                @include('pages.countries.partial.excursions')
+                                @include('pages.countries.partial.infos')
                             @endif
 
                         </div>

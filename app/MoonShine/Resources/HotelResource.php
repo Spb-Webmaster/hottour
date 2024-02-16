@@ -14,6 +14,7 @@ use MoonShine\Decorations\Divider;
 use MoonShine\Decorations\Grid;
 use MoonShine\Decorations\Tab;
 use MoonShine\Decorations\Tabs;
+use MoonShine\Enums\ClickAction;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Json;
@@ -35,6 +36,8 @@ class HotelResource extends ModelResource
 
     protected string $title = 'Hotels';
 
+    protected ?ClickAction $clickAction = ClickAction::EDIT;
+
 
     public function filters(): array
     {
@@ -43,12 +46,13 @@ class HotelResource extends ModelResource
                 ->useOnImport()
                 ->showOnExport(),
 
-            Text::make('Title', 'title')
+            Text::make('Название', 'title')
                 ->useOnImport()
                 ->showOnExport(),
-           Text::make('ID', 'slug')
+           Text::make('ID Отеля', 'slug')
                ->useOnImport()
-               ->showOnExport()
+               ->showOnExport(),
+            BelongsTo::make('Страна', 'parent', resource: new HotCategoryResource())->nullable()
         ];
     }
 
@@ -58,155 +62,173 @@ class HotelResource extends ModelResource
     protected string $sortColumn = 'sorting';
 
 
-    /**
-     * @return //array, выводим teaser
-     */
-
-    public function indexFields(): array
-    {
-        return [
-            ID::make()
-                ->sortable(),
-
-            Image::make(__('Изображение'), 'img')
-                ->disk(config('moonshine.disk', 'moonshine'))
-                ->dir('category')
-                ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg']),
-
-            Text::make(__('Заголовок'), 'title')
-                ->required()
-                ->useOnImport()
-                ->showOnExport(),
-            Slug::make(__('Алиас'), 'slug')
-                ->from('title')
-                ->hint('url адрес, обязательное поле')
-                ->unique()
-                ->useOnImport()
-                ->showOnExport(),
-
-            Switcher::make('Публикация', 'published')->updateOnPreview(),
-            Switcher::make('Desc', 'description'),
-            Switcher::make('Key', 'keywords'),
-
-
-        ];
-    }
-
-    /**
-     * @return //array, выводим full
-     */
-    public function formFields(): array
+    public function fields(): array
     {
         return [
             Block::make([
-                Tabs::make([
 
+
+                Tabs::make([
                     Tab::make(__('Общие настройки'), [
+
                         Grid::make([
                             Column::make([
-
-                                ID::make()
-                                    ->sortable()
+                                ID::make()->sortable()
                                     ->useOnImport()
                                     ->showOnExport(),
-                                Collapse::make('Заголовок/Алиас', [
-                                    Text::make('Заголовок', 'title')
-                                        ->required()
-                                        ->useOnImport()
-                                        ->showOnExport(),
-                                    Slug::make('Алиас', 'slug')
-                                        ->from('title')->unique()
-                                        ->useOnImport()
-                                        ->showOnExport()
+
+                                Image::make(__('Изображение'), 'img')
+                                    ->disk(config('moonshine.disk', 'moonshine'))
+                                    ->dir('hotel')
+                                    ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
+                                    ->hideOnIndex(),
+                                Text::make(__('API'), 'slug')->hideOnForm(),
+
+                                Text::make(__('Заголовок'), 'title')
+                                    ->required()
+                                    ->useOnImport()
+                                    ->showOnExport(),
+
+                                Slug::make(__('Алиас'), 'slug')
+                                    ->from('title')
+                                    ->hint('url адрес, обязательное поле')
+                                    ->unique()
+                                    ->useOnImport()
+                                    ->showOnExport()
+                                    ->hideOnIndex(),
+                                Text::make(__('Подзаголовок'), 'subtitle')
+                                    ->hideOnIndex(),
+                                Text::make(__('hot_category_id'), 'hot_category_id')
+                                    ->useOnImport()
+                                    ->showOnExport()
+                                ->hideOnIndex()
+                                ->hideOnForm(),
+
+                                Column::make([
+                                    TinyMce::make('Краткое описание', 'smalltext')->hideOnIndex()
                                 ]),
 
 
-                                Text::make(__('Подзаголовок'), 'subtitle'),
-                                Image::make(__('Изображение'), 'img')
-                                    ->disk(config('moonshine.disk', 'moonshine'))
-                                    ->dir('category')
-                                    ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
-                                    ->removable(),
+                                BelongsTo::make('Кат.', 'parent', resource: new HotCategoryResource())->hideOnForm(),
+                                Switcher::make('Публ.', 'published')->updateOnPreview()->hideOnForm(),
+                             /*   Switcher::make('Desc', 'description')->hideOnForm(),
+                                Switcher::make('Key', 'keywords')->hideOnForm(),*/
 
-                                Column::make([
-                                    TinyMce::make('Краткое описание', 'smalltext')
-                                        ->useOnImport()
-                                        ->showOnExport()
-                                ])
+                                Switcher::make('region', 'region')->hideOnForm(),
+                                Switcher::make('stars', 'stars')->hideOnForm(),
+                                Switcher::make('rating', 'rating')->hideOnForm(),
+                                Switcher::make('placement', 'placement')->hideOnForm(),
+                                Switcher::make('desc', 'desc')->hideOnForm(),
+                                Switcher::make('image', 'imagescount')->hideOnForm(),
+                                Switcher::make('build', 'build')->hideOnForm(),
+                                Switcher::make('repair', 'repair')->hideOnForm(),
+                                Switcher::make('coord', 'coord')->hideOnForm(),
+                            ])->columnSpan(6),
 
-
-                            ])
-                                ->columnSpan(6),
                             Column::make([
 
                                 Collapse::make('Метотеги', [
-                                    Text::make('Мета тэг (title) ', 'metatitle'),
-                                    Text::make('Мета тэг (description) ', 'description'),
-                                    Text::make('Мета тэг (keywords) ', 'keywords'),
-                                    Switcher::make('Публикация', 'published')->default(1),
+                                    Text::make('Мета тэг (title) ', 'metatitle')->hideOnIndex()
+                                        ->useOnImport()
+                                        ->showOnExport(),
+                                    Text::make('Мета тэг (description) ', 'description')->hideOnIndex()
+                                        ->useOnImport()
+                                        ->showOnExport(),
+                                    Text::make('Мета тэг (keywords) ', 'keywords')->hideOnIndex()
+                                        ->useOnImport()
+                                        ->showOnExport(),
+                                    Switcher::make('Публикация', 'published')->default(1)->hideOnIndex(),
 
                                 ]),
                                 Collapse::make('Вложенность', [
-                                    BelongsTo::make('Категория', 'parent', resource: new HotCategoryResource())->nullable()->searchable(),
-
+                                    BelongsTo::make('Категория', 'parent', resource: new HotCategoryResource())->nullable()->searchable()->hideOnIndex(),
                                 ]),
+                            ])->columnSpan(6),
 
-
-                            ])
-                                ->columnSpan(6)
 
                         ]),
-                        Divider::make(),
+                    ]),
 
+
+                    Tab::make(__('Дополнительно'), [
                         Column::make([
-                            TinyMce::make('Описание', 'text')
+                            TinyMce::make('Описание', 'text')->hideOnIndex()
                         ])
                             ->columnSpan(12),
                         Divider::make('Дополнительное изображение на страницу'),
 
                         Image::make(__('Изображение'), 'pageimg1')
                             ->disk(config('moonshine.disk', 'moonshine'))
-                            ->dir('category')
+                            ->dir('hotel')
                             ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
                             ->removable()
-                            ->hint('Растягивается на 100% ширины'),
-
-                        Divider::make(),
-
-                        Column::make([
-                            TinyMce::make('Дополнительное описание', 'text2')
-                        ])
-                            ->columnSpan(12),
-
-                        Image::make(__('Изображение'), 'pageimg2')
-                            ->disk(config('moonshine.disk', 'moonshine'))
-                            ->dir('category')
-                            ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
-                            ->removable()
-                            ->hint('Растягивается на 100% ширины'),
-
-                        Divider::make(),
-
-                        Column::make([
-                            TinyMce::make('Дополнительное описание', 'text3')
-                        ])
-                            ->columnSpan(12),
+                            ->hint('Растягивается на 100% ширины')->hideOnIndex(),
                     ]),
 
+                    Tab::make(__('Изображения'), [
 
-                    Tab::make(__('Дополнительно'), [
+                        Divider::make('Изображения по ссылке'),
+                        Json::make('Фото от Tourvisor', 'params')
+                            ->onlyValue()
+                            ->creatable(
+                                button: ActionButton::make('New', '#')->primary()
+                            ) ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
 
+                    ]),
+                    Tab::make(__('Данные отеля API'), [
 
+                        Text::make(__('Регион'), 'region')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
 
+                        Text::make(__('Звезды'), 'stars')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Рейтинг'), 'rating')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Размещение'), 'placement')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Орисание'), 'desc')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Количество фото'), 'imagescount')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Постройка'), 'build')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Ремонт'), 'repair')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Text::make(__('Координаты'), 'coord')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
 
                     ]),
                 ]),
 
-
             ]),
         ];
-
-
     }
 
 
@@ -233,7 +255,8 @@ class HotelResource extends ModelResource
 
     public function export(): ?ExportHandler
     {
-        return ExportHandler::make('Export');
+        return null;
+        //return ExportHandler::make('Export');
     }
 
 }

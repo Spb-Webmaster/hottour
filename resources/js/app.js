@@ -18,5 +18,6 @@ import './translate/translate.js';
 import './imask';
 import './select';
 import './ajax';
+import './yandex_map';
 import './script';
 import './mobile';

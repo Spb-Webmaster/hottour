@@ -28,14 +28,16 @@ return new class extends Migration
             $table->string('pageimg2')->nullable();
             $table->text('text3')->nullable();
             $table->string('published')->default(1);
+            $table->string('main')->default(0);
             $table->json('params')->nullable();
             $table->foreignIdFor(HotCategory::class)
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->string('metatitle')->nullable();
-            $table->string('description')->nullable();
-            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
             $table->integer('sorting')->default(999);
             $table->timestamps();
         });

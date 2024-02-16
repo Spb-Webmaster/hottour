@@ -4,13 +4,25 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\CompanyResource;
+use App\MoonShine\Resources\ContactResource;
+use App\MoonShine\Resources\Dump2Resource;
+use App\MoonShine\Resources\DumpResource;
 use App\MoonShine\Resources\HotCategoryResource;
 use App\MoonShine\Resources\HotelResource;
 use App\MoonShine\Resources\InfoResource;
+use App\MoonShine\Resources\Menudump2Resource;
+use App\MoonShine\Resources\MenudumpResource;
 use App\MoonShine\Resources\MenuResource;
+use App\MoonShine\Resources\MenutourResource;
+use App\MoonShine\Resources\PageResource;
+use App\MoonShine\Resources\PublResource;
 use App\MoonShine\Resources\ResortResource;
 use App\MoonShine\Resources\ExcursionResource;
+use App\MoonShine\Resources\SeoResource;
 use App\MoonShine\Resources\TestResource;
+use App\MoonShine\Resources\TourResource;
+use App\MoonShine\Resources\TravelResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -45,10 +57,31 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ]),
 
             MenuGroup::make(static fn() => __('Разделы'), [
+
                 MenuItem::make(
-                    static fn() => __('Категории'),
+                    static fn() => __('Страны'),
                     new HotCategoryResource()
                 )->icon('heroicons.outline.flag'),
+
+                MenuItem::make(
+                    static fn() => __('Горящие туры'),
+                    new TravelResource()
+                )->icon('heroicons.outline.fire'),
+
+                MenuItem::make(
+                    static fn() => __('Tуры'),
+                    new TourResource()
+                )->icon('heroicons.outline.list-bullet'),
+
+                MenuItem::make(
+                    static fn() => __('Полезное'),
+                    new DumpResource()
+                )->icon('heroicons.outline.document-text'),
+
+                MenuItem::make(
+                    static fn() => __('О нас'),
+                    new Dump2Resource()
+                )->icon('heroicons.outline.currency-dollar'),
 
             ]),
 
@@ -75,13 +108,28 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 )->icon('heroicons.information-circle'),
 
                 MenuItem::make(
-                    static fn() => __('Test'),
-                    new TestResource()
-                )->icon('heroicons.information-circle'),
+                    static fn() => __('Статьи,Услуги...'),
+                    new PublResource()
+                )->icon('heroicons.newspaper'),
 
+                MenuItem::make(
+                    static fn() => __('Отзывы,О нас...'),
+                    new CompanyResource()
+                )->icon('heroicons.newspaper'),
+
+                MenuItem::make(
+                    static fn() => __('Страницы'),
+                    new PageResource()
+                )->icon('heroicons.bars-3'),
+                MenuItem::make(
+                    static fn() => __('Контакты'),
+                    new ContactResource()
+                )->icon('heroicons.outline.map-pin'),
 
 
             ]),
+
+
 
 
             MenuGroup::make(static fn() => __('Меню'), [
@@ -90,9 +138,31 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     new MenuResource()
                 )->icon('heroicons.bars-3'),
 
+                MenuItem::make(
+                    static fn() => __('Меню туров'),
+                    new MenutourResource()
+                )->icon('heroicons.bars-3'),
+
+                MenuItem::make(
+                    static fn() => __('Меню полезное'),
+                    new MenudumpResource()
+                )->icon('heroicons.bars-3'),
+                MenuItem::make(
+                    static fn() => __('Меню о нас'),
+                    new Menudump2Resource()
+                )->icon('heroicons.bars-3'),
+
             ]),
 
 
+            MenuGroup::make(static fn() => __('Служебные'), [
+
+                MenuItem::make(
+                    static fn() => __('SEO'),
+                    new SeoResource()
+                )->icon('heroicons.outline.bug-ant'),
+
+            ]),
         ];
     }
 

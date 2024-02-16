@@ -267,7 +267,7 @@ a:hover {
         font-weight: 700;
         font-style: normal;
         font-size: 30px;
-        color: $colorBlue;
+        color: #000;
     }
     h4 {
         line-height: 1.1em;
@@ -284,7 +284,7 @@ a:hover {
         margin: 16px 0;
     }
     ul,  ol {
-        padding: 10px 10px 10px 2px;
+        padding: 10px 10px 10px 6px;
     }
 
    ul li:before {

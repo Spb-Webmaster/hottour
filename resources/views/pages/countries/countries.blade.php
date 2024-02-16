@@ -1,7 +1,5 @@
 @extends('layouts.layout')
-@section('title', ($seo_title)??null)
-@section('description', ($seo_description)??null)
-@section('keywords', ($seo_keywords)??null)
+<x-seo.meta/>
 @section('content')
 
     <main class="page_site background_f7f7f7">
@@ -15,7 +13,7 @@
                                 <li><span>{{__('Страны')}}</span></li>
                             </x-breadcrumb.breadcrumb>
 
-                            <h1>Страны</h1>
+                            <h1>{{ __('Страны') }}</h1>
                         </div>
                         <div class="hrow">
                             @foreach($countries as $country)

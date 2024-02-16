@@ -14,6 +14,7 @@ use MoonShine\Decorations\Column;
 use MoonShine\Decorations\Grid;
 use MoonShine\Decorations\Tab;
 use MoonShine\Decorations\Tabs;
+use MoonShine\Enums\ClickAction;
 use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
@@ -34,6 +35,7 @@ class MenuResource extends TreeResource
 
     protected string $sortColumn = 'sorting';
 
+    protected ?ClickAction $clickAction = ClickAction::EDIT;
     /**
      * @return //array, выводим teaser
      */

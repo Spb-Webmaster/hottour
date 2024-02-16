@@ -15,6 +15,7 @@ use MoonShine\Decorations\Divider;
 use MoonShine\Decorations\Grid;
 use MoonShine\Decorations\Tab;
 use MoonShine\Decorations\Tabs;
+use MoonShine\Enums\ClickAction;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Relationships\BelongsTo;
@@ -39,6 +40,7 @@ class ResortResource extends TreeResource
 
     protected string $sortColumn = 'sorting';
 
+    protected ?ClickAction $clickAction = ClickAction::EDIT;
 
     /**
      * @return //array, выводим teaser
@@ -100,7 +102,7 @@ class ResortResource extends TreeResource
                                 Image::make(__('Изображение'), 'img')
                                     ->showOnExport()
                                     ->disk(config('moonshine.disk', 'moonshine'))
-                                    ->dir('category')
+                                    ->dir('resort')
                                     ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
                                     ->removable(),
 
@@ -141,7 +143,7 @@ class ResortResource extends TreeResource
                         Image::make(__('Изображение'), 'pageimg1')
                             ->showOnExport()
                             ->disk(config('moonshine.disk', 'moonshine'))
-                            ->dir('category')
+                            ->dir('resort')
                             ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
                             ->removable()
                             ->hint('Растягивается на 100% ширины'),
@@ -156,7 +158,7 @@ class ResortResource extends TreeResource
                         Image::make(__('Изображение'), 'pageimg2')
                             ->showOnExport()
                             ->disk(config('moonshine.disk', 'moonshine'))
-                            ->dir('category')
+                            ->dir('resort')
                             ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
                             ->removable()
                             ->hint('Растягивается на 100% ширины'),

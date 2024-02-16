@@ -25,6 +25,20 @@ class CountryViewModel
         return $countries;
 
     }
+    public function listCountriesForMain()
+    {
+
+        $countries = Cache::rememberForever('list_countries_for_main', function () {
+
+            return HotCategory::query()
+                ->get_countries_for_main()
+                ->get();
+        });
+
+
+        return $countries;
+
+    }
 
     public function OneCountry($slug)
     {

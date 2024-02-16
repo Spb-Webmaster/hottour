@@ -6,11 +6,9 @@ use Domain\Resort\QueryBuilders\ResortQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Support\Traits\Models\HasThumbnail;
 
 class Resort extends Model
 {
-    use HasThumbnail;
 
 
     protected $fillable = [
@@ -34,6 +32,10 @@ class Resort extends Model
         'description',
         'keywords',
         'sorting'
+    ];
+
+    protected $casts = [
+        'params' => 'collection',
     ];
 
     public function parent():BelongsTo
@@ -68,8 +70,5 @@ class Resort extends Model
 
     }
 
-    protected function thumbnailDir(): string
-    {
-        return 'resorts';
-    }
+
 }

@@ -5,11 +5,9 @@ namespace App\Models;
 use Domain\Hotel\QueryBuilders\HotelQueryBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Support\Traits\Models\HasThumbnail;
 
 class Hotel extends Model
 {
-    use HasThumbnail;
 
 
     protected $fillable = [
@@ -27,6 +25,18 @@ class Hotel extends Model
         'text3',
         'pageimg2',
         'text',
+
+        'stars',
+        'rating',
+        'placement',
+        'desc',
+        'imagescount',
+        'regioncode',
+        'build',
+        'repair',
+        'coord',
+
+
         'published',
         'params',
         'metatitle',
@@ -34,6 +44,7 @@ class Hotel extends Model
         'keywords',
         'sorting'
     ];
+
 
     protected $casts = [
         'params' => 'collection',
@@ -71,8 +82,5 @@ class Hotel extends Model
 
     }
 
-    protected function thumbnailDir(): string
-    {
-        return 'hotels';
-    }
+
 }

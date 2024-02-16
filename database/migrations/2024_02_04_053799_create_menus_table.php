@@ -20,6 +20,7 @@ return new class extends Migration
             $table->json('params')->nullable();
             $table->integer('hot_category_id')->nullable();
             $table->foreignIdFor(Menu::class)
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

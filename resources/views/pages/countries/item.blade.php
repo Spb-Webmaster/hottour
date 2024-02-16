@@ -1,7 +1,9 @@
 @extends('layouts.layout')
-@section('title', ($seo_title)??null)
-@section('description', ($seo_description)??null)
-@section('keywords', ($seo_keywords)??null)
+<x-seo.meta
+    title="{{($item->metatitle)?:$item->title}}"
+    description="{{$item->description}}"
+    keywords="{{$item->keywords}}"
+/>
 @section('content')
 
     <main class="page_site background_f7f7f7">
@@ -31,7 +33,6 @@
                             </h1>
                         </div>
 
-
                     </div>
 
                     <div class="hbox__submenu">
@@ -40,14 +41,14 @@
 
                                 <div class="v_s_c__item"><a href="{{asset(route('countries')).'/'. $country->slug}}">{{ __('О стране') }}</a></div>
 
- @foreach($subcountries as $subcountry)
-   {{--  @dd(asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug . '/'. $item->slug))--}}
-        <div class="v_s_c__item
-        {{ active_linkMenu(asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug . '/'. $item->slug) ) }}">
-        <a  href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">{{ $subcountry->title_for_menu }}</a>
-        </div>
+                 @foreach($subcountries as $subcountry)
+                   {{--  @dd(asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug . '/'. $item->slug))--}}
+                        <div class="v_s_c__item
+                        {{ active_linkMenu(asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug . '/'. $item->slug) ) }}">
+                        <a  href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">{{ $subcountry->title_for_menu }}</a>
+                        </div>
 
-  @endforeach
+                  @endforeach
 
                             </div>
                         </div>
@@ -66,9 +67,9 @@
                             </div>
                         @endif
 
-                        @if($item->pageimg)
+                        @if($item->pageimg1)
                             <div class="pageimg pad_t16 pad_b16">
-                                <img src="{{ asset(intervention('892x516', $item->pageimg)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $item->pageimg1)) }}" width="892" height="516" loading="lazy"
                                      alt="{{$item->title}}" />
                             </div>
                         @endif
@@ -101,9 +102,7 @@
             </div><!--.page_site__flex-->
         </div>
 
-
     </main>
-
 
 @endsection
 

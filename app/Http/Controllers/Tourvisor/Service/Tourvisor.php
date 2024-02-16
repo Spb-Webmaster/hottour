@@ -122,6 +122,8 @@ class Tourvisor
 
     }
 
+
+
     public function getFlag($name)
     {
         $name = str_replace(" ", '_', mb_strtolower($name));

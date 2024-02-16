@@ -41,17 +41,35 @@ if (!function_exists('cache_clear ')) {
             Cache::forget($model->position); // для модулей
         }*/
         Cache::forget('top_menu');
+        Cache::forget('top_menutours');
+        Cache::forget('top_menudumps');
+        Cache::forget('top_menudump2s');
         Cache::forget('countries');
 
         Cache::forget('list_countries');
+        Cache::forget('list_countries_for_main');
         Cache::forget('hot_categories_relation');
         Cache::forget('list_countries_all');
         Cache::forget('sub_countries');
+
+        Cache::forget('list_contacts');
 
         Cache::forget('excursion');
         Cache::forget('hotel');
         Cache::forget('info');
         Cache::forget('resort');
+
+        Cache::forget('tour');
+
+        Cache::forget('list_dumps_all');
+        Cache::forget('list_dump2s_all');
+
+
+        Cache::forget('publs');
+        Cache::forget('companies');
+
+
+        Cache::forget('module_country_main');
 
 
     }
@@ -294,7 +312,6 @@ if (!function_exists('active_link')) {
     function active_link(string|array $names, string $class = 'active'): string|null
     {
 
-
         if (is_string($names)) {
             $names = [$names];
         }
@@ -304,11 +321,17 @@ if (!function_exists('active_link')) {
 
 
 if (!function_exists('active_linkMenu')) {
-    function active_linkMenu(string|array $names, string $class = 'active'): string|null
+    function active_linkMenu(string|array $url, string $find = null, string $class = 'active'): string|null
     {
+        if($find) {
+            if(str_starts_with(url()->current(), trim($url))) {
+                return $class;
+            }
+            return  null;
 
-       // dump(url()->current());
-        return ($names == url()->current() ) ? $class : null;
+        }
+
+        return ($url == url()->current() ) ? $class : null;
     }
 }
 
@@ -352,9 +375,16 @@ if (!function_exists('rusdate')) {
 
 
 if (!function_exists('intervention')) {
-    function intervention(string $size, string $image, string $method = 'fit')
+    function intervention(string $size, string $image = null,  string $dir = 'countries', string $method = 'fit')
     {
-        $dir = 'countries';
+        if(!$image) {
+            return null;
+        }
+        if(!File::exists(public_path('storage/'.$image))){
+            return null;
+        }
+
+       // $dir = 'countries';
        // $method = 'fit'; // 'resize|crop|fit'
         $file = File::basename($image);
 

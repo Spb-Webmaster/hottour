@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Support\Traits\Models\HasThumbnail;
 
 class Excursion extends Model
 {
-    use HasThumbnail;
 
 
     protected $fillable = [
@@ -35,6 +33,9 @@ class Excursion extends Model
         'description',
         'keywords',
         'sorting'
+    ];
+    protected $casts = [
+        'params' => 'collection',
     ];
 
     public function parent():BelongsTo
@@ -71,8 +72,4 @@ class Excursion extends Model
 
     }
 
-    protected function thumbnailDir(): string
-    {
-        return 'excursions';
-    }
 }

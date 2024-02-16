@@ -35,8 +35,8 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->string('metatitle')->nullable();
-            $table->string('description')->nullable();
-            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
             $table->integer('sorting')->default(999);
             $table->timestamps();
         });

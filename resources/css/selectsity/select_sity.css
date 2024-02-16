@@ -40,7 +40,8 @@
   font-size: 16px; }
 
 .tps_ul {
-  position: relative; }
+  position: relative;
+  color: #282828; }
 
 .tps_ul_absol {
   display: none;

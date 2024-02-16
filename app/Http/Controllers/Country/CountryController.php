@@ -63,7 +63,7 @@ class CountryController extends Controller
         $excursions = (count($hot_category->excursions))?$hot_category->excursions()->paginate(20):[];
 
         //$hotels = $hot_category->hotels; // список курортов, отелей, экскурсий, полезного
-        $hotels = (count($hot_category->hotels))?$hot_category->hotels()->paginate(20):[];
+        $hotels = (count($hot_category->hotels))?$hot_category->hotels()->orderBy('imagescount', 'DESC')->orderBy('stars', 'DESC')->orderBy('desc', 'DESC')->orderBy('rating', 'DESC')->paginate(20):[];
 
         //$infos = $hot_category->infos; // список курортов, отелей, экскурсий, полезного
         $infos = (count($hot_category->infos))?$hot_category->infos()->paginate(20):[];
@@ -84,7 +84,7 @@ class CountryController extends Controller
     public function item($slug_country,$slug_subcountry, $slug_subcountry__item)
     {
         /**
-         * Страница вывода курортов определенной страны
+         * Страница вывода курорта, отеля, экскурсии, прочего  определенной страны
          **/
         $country = CountryViewModel::make()->OneCountry($slug_country); // страна
         $hot_category = CountryViewModel::make()->HotCategoryRelation($slug_subcountry);  // курорт страны (подлкатегория страны)
@@ -95,7 +95,7 @@ class CountryController extends Controller
         $excursions = (count($hot_category->excursions))?$hot_category->excursions()->get():[];
         $hotels = (count($hot_category->hotels))?$hot_category->hotels()->get():[];
         $infos = (count($hot_category->infos))?$hot_category->infos()->get():[];
-
+        $view = 'pages.countries.item';
         if($resorts) {
             $item = ResortViewModel::make()->OneResort($slug_subcountry__item); // материал курорта
         }
@@ -106,6 +106,7 @@ class CountryController extends Controller
 
         if($hotels) {
             $item = HotelViewModel::make()->OneHotel($slug_subcountry__item); // материал отеля
+            $view = 'pages.countries.hotel';
         }
 
         if($infos) {
@@ -113,7 +114,7 @@ class CountryController extends Controller
         }
 
 
-        return view('pages.countries.item', [
+        return view($view, [
             'hot_category' => $hot_category,
             'item' => $item,
             'subcountries' => $subcountries,
@@ -121,6 +122,7 @@ class CountryController extends Controller
         ]);
 
     }
+
 
 
 }

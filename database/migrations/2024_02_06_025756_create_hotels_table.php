@@ -34,9 +34,22 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+
+            $table->integer('stars')->nullable();
+            $table->string('rating')->nullable();
+            $table->text('placement')->nullable();
+            $table->text('desc')->nullable();
+            $table->integer('imagescount')->nullable();
+            $table->integer('regioncode')->nullable();
+            $table->string('region')->nullable();
+            $table->string('build')->nullable();
+            $table->string('repair')->nullable();
+            $table->string('coord')->nullable();
+
+
             $table->string('metatitle')->nullable();
-            $table->string('description')->nullable();
-            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
             $table->integer('sorting')->default(999);
             $table->timestamps();
         });

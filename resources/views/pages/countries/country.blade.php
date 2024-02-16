@@ -1,7 +1,9 @@
 @extends('layouts.layout')
-@section('title', ($seo_title)??null)
-@section('description', ($seo_description)??null)
-@section('keywords', ($seo_keywords)??null)
+<x-seo.meta
+title="{{($country->metatitle)?:$country->title}}"
+description="{{$country->description}}"
+keywords="{{$country->keywords}}"
+/>
 @section('content')
 
     <main class="page_site background_f7f7f7">
@@ -60,10 +62,9 @@
                                 {!!  shortcode($country->text) !!}
                             </div>
                         @endif
-
-                        @if($country->pageimg)
+                        @if($country->pageimg1)
                             <div class="pageimg pad_t16 pad_b16">
-                                <img src="{{asset(intervention('892x516', $country->pageimg)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{asset(intervention('892x516', $country->pageimg1)) }}" width="892" height="516" loading="lazy"
                                      alt="{{$country->title}}">
                             </div>
                         @endif
@@ -75,6 +76,7 @@
                         @endif
 
                         @if($country->pageimg2)
+
                                 <div class="pageimg pad_t16 pad_b16">
                                     <img src="{{ asset(intervention('892x516', $country->pageimg2)) }}" width="892" height="516" loading="lazy"
                                          alt="{{ ($country->subtitle)?: $country->title }}" />

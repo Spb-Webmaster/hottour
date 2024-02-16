@@ -15,6 +15,7 @@ use MoonShine\Decorations\Divider;
 use MoonShine\Decorations\Grid;
 use MoonShine\Decorations\Tab;
 use MoonShine\Decorations\Tabs;
+use MoonShine\Enums\ClickAction;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Relationships\BelongsTo;
@@ -37,8 +38,10 @@ class ExcursionResource extends TreeResource
 
     protected string $column = 'title';
 
+
     protected string $sortColumn = 'sorting';
 
+    protected ?ClickAction $clickAction = ClickAction::EDIT;
 
     /**
      * @return //array, выводим teaser
@@ -78,6 +81,7 @@ class ExcursionResource extends TreeResource
     /**
      * @return //array, выводим full
      */
+
     public function formFields(): array
     {
         return [
@@ -185,7 +189,6 @@ class ExcursionResource extends TreeResource
 
     }
 
-
     public function rules(Model $item): array
     {
         return [
@@ -208,12 +211,10 @@ class ExcursionResource extends TreeResource
         ];
     }
 
-
     public function import(): ?ImportHandler
     {
         return null;
     }
-
 
     public function export(): ?ExportHandler
     {
@@ -224,7 +225,6 @@ class ExcursionResource extends TreeResource
     {
         return ['create', /*'view',*/ 'update', 'delete', 'massDelete'];
     }
-
 
     public function treeKey(): ?string
     {
