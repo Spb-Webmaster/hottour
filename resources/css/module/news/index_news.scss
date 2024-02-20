@@ -59,6 +59,7 @@ $maxWidth: 1440;
     .n_vid__flex {
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
 
         .n_vid_item {
 
@@ -66,6 +67,7 @@ $maxWidth: 1440;
             max-width: 260px;
             a {
                 text-decoration: none;
+                display: block;
             }
 
             img {

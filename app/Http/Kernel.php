@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RedirectMiddleware;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Middleware\SeoMiddleware;
 use App\Http\Middleware\UserBlockedMiddleware;
@@ -26,6 +27,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         SeoMiddleware::class,
+        RedirectMiddleware::class,
 
     ];
 

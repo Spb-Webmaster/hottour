@@ -23,11 +23,13 @@
     margin: 0 auto; }
   .n_vid .n_vid__flex {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: flex-start; }
     .n_vid .n_vid__flex .n_vid_item {
       max-width: 260px; }
       .n_vid .n_vid__flex .n_vid_item a {
-        text-decoration: none; }
+        text-decoration: none;
+        display: block; }
       .n_vid .n_vid__flex .n_vid_item img {
         border-radius: 8px; }
       .n_vid .n_vid__flex .n_vid_item .n_vid_item__img {

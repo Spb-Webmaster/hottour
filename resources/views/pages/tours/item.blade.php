@@ -48,9 +48,9 @@
                             </div>
                         @endif
 
-                        @if($item->pageimg)
+                        @if($item->pageimg1)
                             <div class="pageimg pad_t16 pad_b16">
-                                <img src="{{ asset(intervention('892x516', $item->pageimg)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $item->pageimg1)) }}" width="892" height="516" loading="lazy"
                                      alt="{{$item->title}}" />
                             </div>
                         @endif

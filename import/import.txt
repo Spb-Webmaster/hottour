@@ -1,0 +1,70 @@
+    public function fields(): array
+    {
+        return [
+            Block::make([
+
+
+                                ID::make()->sortable()
+                                    ->useOnImport()
+                                    ->showOnExport(),
+
+                                Text::make(__('Заголовок'), 'title')
+                                    ->required()
+                                    ->useOnImport()
+                                    ->showOnExport(),
+
+                                Slug::make(__('Алиас'), 'slug')
+                                    ->from('title')
+                                    ->unique()
+                                    ->useOnImport()
+                                    ->showOnExport(),
+
+                                Text::make(__('hot_category_id'), 'hot_category_id')
+                                    ->useOnImport()
+                                    ->showOnExport(),
+
+                                Column::make([
+                                    TinyMce::make('Краткое описание', 'smalltext')->hideOnIndex()
+                                ]),
+
+                                  Switcher::make('desc', 'description')->hideOnForm(),
+                                  Switcher::make('key', 'keywords')->hideOnForm(),
+                                  Switcher::make('text.', 'text')->hideOnForm(),
+                                  Switcher::make('text2.', 'text2')->hideOnForm(),
+                                  Switcher::make('text3', 'text3')->hideOnForm(),
+
+                                    Text::make('Мета тэг (title) ', 'metatitle')->hideOnIndex()
+                                        ->useOnImport()
+                                        ->showOnExport(),
+
+                                    Text::make('Мета тэг (description) ', 'description')->hideOnIndex()
+                                        ->useOnImport()
+                                        ->showOnExport(),
+
+                                    Text::make('Мета тэг (keywords) ', 'keywords')->hideOnIndex()
+                                        ->useOnImport()
+                                        ->showOnExport(),
+
+                                    Switcher::make('Публикация', 'published')->default(1)->hideOnIndex(),
+
+                                    TinyMce::make('Описание', 'text')
+                                        ->useOnImport()
+                                        ->showOnExport()
+                                        ->hideOnIndex(),
+
+                                   TinyMce::make('Описание', 'text2')
+                                        ->useOnImport()
+                                        ->showOnExport()
+                                        ->hideOnIndex(),
+
+                                    TinyMce::make('Описание', 'text3')
+                                        ->useOnImport()
+                                        ->showOnExport()
+                                        ->hideOnIndex()
+
+                        ]),
+
+
+
+        ];
+    }

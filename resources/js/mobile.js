@@ -24,4 +24,20 @@ $('.mobile_version__social').html($('.header_top .top_social').html());
 
         });
 
+    /* добавляем в мобильное меню пункты у который есть class="add__mobile_menu"  */
+
+    $('.add__mobile_menu').each(function( index ) {
+        let active;
+        if($(this).hasClass('active')) {
+             active = 'active';
+        } else {
+            active = '';
+        }
+        $('.fMenu').append('<li><a class="'+ active +'" href="' + $(this).attr('href') + '">'+ $(this).text() +'</a></li>');
+
+
+    });
+
+    /* добавляем в мобильное меню пункты у который есть class="add__mobile_menu"  */
+
 });

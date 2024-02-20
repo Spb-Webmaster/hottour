@@ -24,7 +24,7 @@
                                  src="{{ asset('storage/'. $country->img)}}"
                                  alt="{{$country->title}}">
                             <img class="pc_category_flag"
-                                 src="http://hottour.test/storage/images/country-flags-svg/ad.svg" width="30"
+                                 src="{{ asset('storage/'. $country->imgflag)}}" width="30"
                                  height="20" loading="lazy" alt="{{__('Flag')}}">
                             <h4>{{$country->title}}</h4>
                         </a>
@@ -49,7 +49,7 @@
                         <div class="pc_super_flexDirection__bottom">
                             <div class="w_100 flex pc_c pc_category__buttons">
                                 <div class="pc_c__left">
-                                    <a href="#" class="button button_normal">Подобрать тур</a>
+                                    <a href="#pick_tour" data-country="{{ $country->title }}" data-fancybox class="pick_tour_button_js button button_normal">{{ __('Подобрать тур') }}</a>
                                 </div>
                                 <div class="pc_c__right">
                                     <a href="{{ asset(config('links.link.countries').'/'.$country->slug) }}">{{ __('Подробнее') }} <span>→</span></a>

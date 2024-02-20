@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Events\OrderCallEvent;
 use App\Events\OrderMiniEvent;
+use App\Events\PickTourEvent;
 use App\Listeners\OrderCallHandlerListener;
 use App\Listeners\OrderMiniHandlerListener;
+use App\Listeners\PickTourHandlerListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -24,6 +26,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         OrderMiniEvent::class => [
             OrderMiniHandlerListener::class
+        ],
+        PickTourEvent::class => [
+            PickTourHandlerListener::class
         ],
     ];
 

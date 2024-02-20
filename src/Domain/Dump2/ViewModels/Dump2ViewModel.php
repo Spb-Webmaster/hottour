@@ -8,7 +8,8 @@ class Dump2ViewModel
 {
     use Makeable;
 
-    public function OneDump2($slug)
+
+    public function listDump2s()
     {
         $list_dump2s_all = Cache::rememberForever('list_dump2s_all', function () {
 
@@ -16,10 +17,20 @@ class Dump2ViewModel
                 ->get_dump2s()
                 ->get();
         });
-        $one_dump2 = $list_dump2s_all->firstWhere('slug', $slug);
+        return $list_dump2s_all;
+
+    }
+
+    public function OneDump2($slug)
+    {
+        $one_dump2 = $this->listDump2s()->firstWhere('slug', $slug);
         return $one_dump2;
+    }
 
-
+    public function OneDump2ForId($id)
+    {
+        $one_dump2 = $this->listDump2s()->firstWhere('id', $id);
+        return $one_dump2;
     }
 
 

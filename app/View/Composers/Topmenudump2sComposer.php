@@ -32,7 +32,7 @@ class Topmenudump2sComposer
                 $tm[$m->id]['slug'] = (isset($m->parent)) ? $m->parent->slug : '#';
             }
         }
-        $top_menudump2s = array_slice($tm, 0, 20);
+        $top_menudump2s = array_slice($tm, 0, 100);
 
 
       //  dd($top_menu);

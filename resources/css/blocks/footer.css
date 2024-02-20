@@ -38,6 +38,15 @@ footer.background_292F3D {
         .f_flextop .f_flextop__left .fl_2 .ff li.active a {
           color: #EF533F;
           text-decoration: underline; }
+      .f_flextop .f_flextop__left .fl_2 .f1 {
+        width: 25%;
+        max-width: 100%; }
+      .f_flextop .f_flextop__left .fl_2 .f2 {
+        width: 30%;
+        max-width: 100%; }
+      .f_flextop .f_flextop__left .fl_2 .f3 {
+        width: 45%;
+        max-width: 100%; }
   .f_flextop .f_flextop__right {
     width: 24%;
     padding: 30px 0 20px 0; }

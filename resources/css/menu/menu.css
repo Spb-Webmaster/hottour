@@ -20,7 +20,7 @@ nav {
   z-index: 30; }
 
 .top_menu li:first-child a {
-  padding-left: 0; }
+  /*  padding-left: 0;*/ }
 
 .top_menu > li > a {
   position: relative;

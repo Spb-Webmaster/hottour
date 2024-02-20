@@ -20,6 +20,7 @@ class Resort extends Model
         'imgflag',
         'gallery',
         'smalltext',
+        'hot_category_id',
         'text',
         'text2',
         'pageimg1',

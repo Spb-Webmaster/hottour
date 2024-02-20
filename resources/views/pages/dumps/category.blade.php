@@ -50,7 +50,7 @@
 
                         @if($category->pageimg2)
                             <div class="pageimg2 pad_t16 pad_b16">
-                                <img src="{{ asset(intervention('892x516', $category->pageimg, 'dumps')) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $category->pageimg2, 'dumps')) }}" width="892" height="516" loading="lazy"
                                      alt="{{ ($category->subtitle)?: $category->title }}">
                             </div>
                         @endif
@@ -64,13 +64,15 @@
                     </div>
 
                     <div class="hbox temp_img_tree">
-                        <div class="hrow">
 
                             @if(count($publs))
+                                @if($category->temp)
+                                @include('pages.dumps.partial.publs_img')
+                                @else
                                 @include('pages.dumps.partial.publs')
+                                @endif
                             @endif
 
-                        </div>
 
                     </div>
 

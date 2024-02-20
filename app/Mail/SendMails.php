@@ -25,6 +25,15 @@ class SendMails
             $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
         });
     }
+    public function sendPickTours($data):void
+    {
+        $view = 'html.email.pick_tours';
+        $subject = 'Заявка с сайта на подбор тура';
+
+        Mail::send($view, ['data' => $data],  function ($message) use ($subject){
+            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+        });
+    }
 
 
 }

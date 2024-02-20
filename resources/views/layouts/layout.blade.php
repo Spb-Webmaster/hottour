@@ -30,6 +30,7 @@
 @include('html.mobile.bottom')
 
 @include('html.temp_forms.order_call')
+@include('html.temp_forms.pick_tour')
 @include('html.modals.gr')
 <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
 

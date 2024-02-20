@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('pageimg2')->nullable();
             $table->text('text3')->nullable();
             $table->string('published')->default(1);
+            $table->string('temp')->default(0);
+
             $table->json('params')->nullable();
             $table->foreignIdFor(Dump::class)
                 ->nullable()

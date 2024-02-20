@@ -7,6 +7,8 @@ namespace App\MoonShine\Resources;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Page;
 
+use Illuminate\Database\Query\Builder;
+use Illuminate\Validation\Rule;
 use MoonShine\Decorations\Collapse;
 use MoonShine\Decorations\Column;
 use MoonShine\Decorations\Divider;
@@ -16,6 +18,7 @@ use MoonShine\Decorations\Tabs;
 use MoonShine\Enums\ClickAction;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Image;
+use MoonShine\Fields\Number;
 use MoonShine\Fields\Slug;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
@@ -35,7 +38,7 @@ class PageResource extends ModelResource
 
     protected string $title = 'Pages';
 
-    protected string $column = 'title';
+    protected string $column = 'sorting';
 
     protected string $sortColumn = 'sorting';
 
@@ -51,11 +54,7 @@ class PageResource extends ModelResource
             ID::make()
                 ->sortable(),
 
-            Image::make(__('Изображение'), 'img')
-                ->showOnExport()
-                ->disk(config('moonshine.disk', 'moonshine'))
-                ->dir('page')
-                ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg']),
+
 
             Text::make(__('Заголовок'), 'title')
                 ->required(),
@@ -69,8 +68,11 @@ class PageResource extends ModelResource
                 ->sortable()
                 ->hideOnForm(),
             Switcher::make('Публикация', 'published')->updateOnPreview(),
+            Switcher::make('Главная', 'add_to_main'),
             Switcher::make('Desc', 'description'),
             Switcher::make('Key', 'keywords'),
+            Number::make('Сорт.', 'sorting')->sortable()
+
 
 
         ];
@@ -93,17 +95,12 @@ class PageResource extends ModelResource
                                 Collapse::make('Заголовок/Алиас', [
                                     Text::make('Заголовок', 'title')->required(),
                                     Slug::make('Алиас', 'slug')
-                                        ->from('title')->unique()
+                                        ->from('title')->unique()->hint('Для главной обязательно home')
                                 ]),
 
 
                                 Text::make(__('Подзаголовок'), 'subtitle'),
-                                Image::make(__('Изображение'), 'img')
-                                    ->showOnExport()
-                                    ->disk(config('moonshine.disk', 'moonshine'))
-                                    ->dir('page')
-                                    ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
-                                    ->removable(),
+
 
                                 Column::make([
                                     TinyMce::make('Краткое описание', 'smalltext')
@@ -119,6 +116,10 @@ class PageResource extends ModelResource
                                     Text::make('Мета тэг (description) ', 'description'),
                                     Text::make('Мета тэг (keywords) ', 'keywords'),
                                     Switcher::make('Публикация', 'published')->default(1),
+                                    Switcher::make('Главная', 'add_to_main')->default(0),
+
+
+                                    Number::make('Сортировка','sorting')->buttons()->default(0)
 
                                 ]),
 
@@ -190,6 +191,9 @@ class PageResource extends ModelResource
             'metatitle' => 'max:255',
             'description' => 'max:512',
             'keywords' => 'max:512',
+            'add_to_main' => [
+                Rule::unique('pages')->ignoreModel($item),
+            ]
         ];
     }
     public function import(): ?ImportHandler

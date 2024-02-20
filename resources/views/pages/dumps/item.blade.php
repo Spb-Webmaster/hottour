@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 <x-seo.meta
-    title="{{($item->metatitle)?:$item->title}}"
+    title="{{(isset($item->metatitle))?:$item->title}}"
     description="{{$item->description}}"
     keywords="{{$item->keywords}}"
 />
@@ -14,7 +14,7 @@
                     <div class="hbox temp_img">
                         <div class="hbox__top pad_b1">
                             <x-breadcrumb.breadcrumb>
-                                <li><a href="{{asset(config('links.link.dump'). '/'.  $category->slug)}}">{{$category->title}}</a></li>
+                                <li><a href="{{asset($top_category . '/'.  $category->slug)}}">{{$category->title}}</a></li>
                                 <li><span>{{$item->title}}</span></li>
                             </x-breadcrumb.breadcrumb>
 
@@ -42,7 +42,7 @@
 
                         @if($item->pageimg1)
                             <div class="pageimg pad_t16 pad_b16">
-                                <img src="{{ asset(intervention('892x516', $item->pageimg1)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $item->pageimg1, 'dumps')) }}" width="892" height="516" loading="lazy"
                                      alt="{{$item->title}}" />
                             </div>
                         @endif
@@ -56,7 +56,7 @@
                         @if($item->pageimg2)
                             <div class="pageimg2 pad_t16 pad_b16">
 
-                                <img src="{{ asset(intervention('892x516', $item->pageimg2)) }}" width="892" height="516" loading="lazy"
+                                <img src="{{ asset(intervention('892x516', $item->pageimg2, 'dumps')) }}" width="892" height="516" loading="lazy"
                                      alt="{{ ($item->subtitle)?: $item->title }}" />
                             </div>
                         @endif

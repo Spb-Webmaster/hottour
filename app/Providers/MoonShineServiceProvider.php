@@ -13,6 +13,7 @@ use App\MoonShine\Resources\HotelResource;
 use App\MoonShine\Resources\InfoResource;
 use App\MoonShine\Resources\Menudump2Resource;
 use App\MoonShine\Resources\MenudumpResource;
+use App\MoonShine\Resources\MenuhottourResource;
 use App\MoonShine\Resources\MenuResource;
 use App\MoonShine\Resources\MenutourResource;
 use App\MoonShine\Resources\PageResource;
@@ -20,9 +21,9 @@ use App\MoonShine\Resources\PublResource;
 use App\MoonShine\Resources\ResortResource;
 use App\MoonShine\Resources\ExcursionResource;
 use App\MoonShine\Resources\SeoResource;
-use App\MoonShine\Resources\TestResource;
 use App\MoonShine\Resources\TourResource;
-use App\MoonShine\Resources\TravelResource;
+use App\MoonShine\Resources\TravelcategoryResource;
+use App\MoonShine\Resources\TravelitemResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -56,7 +57,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                ),
             ]),
 
-            MenuGroup::make(static fn() => __('Разделы'), [
+            MenuGroup::make(static fn() => __('Категории'), [
 
                 MenuItem::make(
                     static fn() => __('Страны'),
@@ -65,7 +66,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
                 MenuItem::make(
                     static fn() => __('Горящие туры'),
-                    new TravelResource()
+                    new TravelcategoryResource()
                 )->icon('heroicons.outline.fire'),
 
                 MenuItem::make(
@@ -108,6 +109,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 )->icon('heroicons.information-circle'),
 
                 MenuItem::make(
+                    static fn() => __('Горящие туры'),
+                    new TravelitemResource()
+                )->icon('heroicons.fire'),
+
+                MenuItem::make(
                     static fn() => __('Статьи,Услуги...'),
                     new PublResource()
                 )->icon('heroicons.newspaper'),
@@ -136,6 +142,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 MenuItem::make(
                     static fn() => __('Меню стран'),
                     new MenuResource()
+                )->icon('heroicons.bars-3'),
+
+                MenuItem::make(
+                    static fn() => __('Меню горящих туров'),
+                    new MenuhottourResource()
                 )->icon('heroicons.bars-3'),
 
                 MenuItem::make(

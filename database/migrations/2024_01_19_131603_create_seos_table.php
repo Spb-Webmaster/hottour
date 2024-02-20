@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('keywords')->nullable();
             $table->json('params')->nullable();
             $table->text('seotext')->nullable();
+            $table->integer('sorting')->default(999);
+
             $table->timestamps();
         });
     }

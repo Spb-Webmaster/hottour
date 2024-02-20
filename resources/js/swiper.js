@@ -83,6 +83,7 @@ new Swiper('.swiper_responce', {
     modules: [Navigation, Pagination],
     slidesPerView: "auto",
     spaceBetween: 30,
+    slidesPerGroup: 3,
     loop: true,
     navigation: {
         nextEl: ".swiper-button-next-swiper_responce",
@@ -91,13 +92,16 @@ new Swiper('.swiper_responce', {
     breakpoints: {
         // mobile + tablet - 320-990
         320: {
-            slidesPerView: 1
+            slidesPerView: 1,
+            slidesPerGroup: 1,
         },
         568: {
-            slidesPerView: 2
+            slidesPerView: 2,
+            slidesPerGroup: 1,
         },
         742: {
-            slidesPerView: 3
+            slidesPerView: 3,
+            slidesPerGroup: 2,
         },
         // desktop >= 991
         991: {

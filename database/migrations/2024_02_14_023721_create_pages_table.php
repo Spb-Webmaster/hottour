@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('pageimg2')->nullable();
             $table->text('text3')->nullable();
             $table->string('published')->default(1);
+            $table->string('add_to_main')->default(0);
             $table->json('params')->nullable();
 
             $table->string('metatitle')->nullable();

@@ -16,6 +16,7 @@ class Page extends Model
         'subtitle',
         'slug',
         'img',
+        'add_to_main',
         'smalltext',
         'text',
         'text2',
@@ -35,6 +36,7 @@ class Page extends Model
         'params' => 'collection',
     ];
 
+
     protected static function boot()
     {
         parent::boot();
@@ -53,6 +55,8 @@ class Page extends Model
 
 
     }
+
+
 
 
 }

@@ -33,7 +33,7 @@ class TopmenudumpsComposer
                 $tm[$m->id]['slug'] = (isset($m->parent)) ? $m->parent->slug : '#';
             }
         }
-        $top_menudumps = array_slice($tm, 0, 20);
+        $top_menudumps = array_slice($tm, 0, 100);
 
 
       //  dd($top_menu);

@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Dump\DumpController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Hottour\HottourController;
 use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\Tour\TourController;
 use App\Http\Controllers\Tourvisor\TourvisorController;
@@ -20,6 +21,7 @@ Route::controller(AjaxController::class)->group(function () {
 
     Route::post('/send-mail/order-call', 'OrderCall');
     Route::post('/send-mail/order-mini', 'OrderMini');
+    Route::post('/send-mail/pick_tour', 'PickTour');
     Route::post('/set-sity/city-action', 'sity');
     Route::post('/get-hotel-info', 'getHotelInfo');
 
@@ -63,6 +65,13 @@ Route::controller(DumpController::class)->group(function () {
 Route::controller(ContactController::class)->group(function () {
 
     Route::get('/'. config('links.link.contacts') , 'page');
+
+});
+
+Route::controller(HottourController::class)->group(function () {
+
+    Route::get('/'. config('links.link.hottour').'/{slug_category}' , 'category');
+    Route::get('/'. config('links.link.hottour').'/{slug_category}/{slug_item}' , 'item');
 
 });
 

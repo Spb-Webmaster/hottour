@@ -77,6 +77,15 @@
   .JFormFieldMap .jt_ph {
     padding-bottom: 5px;
     font-size: 14px; }
+    .JFormFieldMap .jt_ph span {
+      color: #667085;
+      font-size: 12px; }
+  .JFormFieldMap .jt_ph__address {
+    padding: 10px 0;
+    font-size: 14px; }
+    .JFormFieldMap .jt_ph__address span {
+      color: #667085;
+      font-size: 12px; }
 
 @media (max-width: 1440px) {
   .catalogContacts .contactTabs .contactTabs__bottom {
@@ -86,6 +95,10 @@
       width: 300px; }
     .catalogContacts .contactTabs .contactTabs__bottom .contactTabsBody__tab .contact_area__fsite_social {
       min-width: 300px; } }
+@media (max-width: 1310px) {
+  .catalogContacts .contactTabs .contactTabs__top {
+    height: auto;
+    flex-wrap: wrap; } }
 @media (max-width: 1024px) {
   .catalogContacts .contactTabs .contactTabs__bottom {
     padding: 24px 12px; }
@@ -94,6 +107,17 @@
     .catalogContacts .contactTabs .contactTabs__bottom .contactTabsBody__tab .contact_area__fsite_social {
       min-width: 200px;
       width: 217px; } }
+@media (max-width: 921px) {
+  #JFormFieldMap:after {
+    width: 29px;
+    height: 545px;
+    right: -8px;
+    top: 0;
+    position: absolute;
+    content: "";
+    display: block;
+    background: #f7f7f7;
+    z-index: 100; } }
 @media (max-width: 868px) {
   .catalogContacts .contactTabs .contactTabs__top {
     height: auto;
@@ -121,6 +145,9 @@
   .catalogContacts .social__flex {
     width: 100%; } }
 @media (max-width: 468px) {
+  .catalogContacts .contactTabs .contactTabs__bottom .contactTabsBody__tab .contact_area__center .contact_area__label {
+    padding: 16px 0 10px 0 !important; }
+
   .catalogContacts .contact_area__fsite_social {
     width: 100% !important;
     min-width: 1px !important;

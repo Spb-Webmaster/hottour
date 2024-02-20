@@ -49,7 +49,7 @@
                                     <div class="v_s_c__item
                                    {{ active_linkMenu(asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug . '/'. $item->slug) ) }}">
                                         <a href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">
-                                            {{ $subcountry->title_for_menu }}</a>
+                                            {{ ($subcountry->title_for_menu)?:$subcountry->title  }}</a>
                                     </div>
 
                                 @endforeach

@@ -15,7 +15,31 @@
 
   footer .android_ios img {
     width: 120px !important;
-    height: 34px !important; } }
+    height: 34px !important; }
+
+  .pc_category a {
+    margin-right: 8px; }
+  .pc_category .pc_category_img {
+    border-radius: 16px;
+    width: 100%;
+    height: auto; }
+
+  .hbox.temp_img .hrow .hcol {
+    height: auto;
+    padding-bottom: 16px; }
+  .hbox.temp_img .hrow .hcol:nth-child(2n) a {
+    margin-left: 8px;
+    margin-right: 0; }
+
+  .hbox.temp_img_tree .hrow .hcol {
+    padding-right: 16px; }
+    .hbox.temp_img_tree .hrow .hcol img {
+      width: 100%;
+      height: auto; }
+
+  .pageimg img {
+    width: 100% !important;
+    height: auto !important; } }
 @media screen and (max-width: 1221px) {
   body .wrapper_ {
     min-height: 1%;
@@ -82,7 +106,19 @@
   .pc_vid .pc_item__left {
     width: 440px; }
   .pc_vid .pc_item__right {
-    width: auto; } }
+    width: auto; }
+
+  .n_vid_item:last-child {
+    display: none !important; }
+
+  .hcol.hcolImgText.hcol__hotels .hcolImgText__left {
+    width: 210px !important; }
+  .hcol.hcolImgText.hcol__hotels .hcolImgText__right {
+    width: 100%; }
+
+  .header_top .top_social {
+    width: 0;
+    display: none; } }
 @media screen and (max-width: 999px) {
   .header_top .top_social {
     width: 0;
@@ -150,7 +186,39 @@
     color: #282828; }
 
   .b_banner_1 {
-    background-position: left; } }
+    background-position: left; }
+
+  .pc_category h4 {
+    font-size: 30px; }
+
+  .hbox.temp_img_tree .hrow .hcol {
+    width: 49%;
+    padding-right: 16px; }
+    .hbox.temp_img_tree .hrow .hcol img {
+      width: 100%;
+      height: auto; }
+
+  .top_menu li:first-child {
+    display: none; }
+
+  .top_menu > li > a {
+    padding: 0 10px; }
+
+  .background_f7f7f7 {
+    background: #fff; }
+
+  .page_site .page_site__flex .page_site__left {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background: #fff;
+    padding-right: 0; }
+  .page_site .page_site__flex .page_site__right {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background: #fff;
+    padding-right: 0; } }
 @media screen and (max-width: 850px) {
   .v_vid .v_vid__video video {
     width: 100%;
@@ -179,7 +247,15 @@
     display: none; }
 
   .swiper-button-next-swiper_banner {
-    display: none; } }
+    display: none; }
+
+  .n_vid__flex .n_vid_item {
+    width: 32%;
+    max-width: 100%; }
+    .n_vid__flex .n_vid_item img {
+      width: auto;
+      height: auto;
+      max-width: 100%; } }
 @media screen and (max-width: 821px) {
   .header_bottom .sp__kab {
     display: none; }
@@ -190,6 +266,22 @@
 /* pocofon  x3 */
 @media (max-width: 793px) {
   /*размер шрифтов*/
+  .desc h2 {
+    font-size: 36px; }
+  .desc h3 {
+    font-size: 30px; }
+  .desc h4 {
+    font-size: 30px; }
+
+  .hbox__top .h1, .hbox__top h1, .hbox__top h2, .hbox__top h3 {
+    font-size: 36px !important; }
+    .hbox__top .h1 span img, .hbox__top h1 span img, .hbox__top h2 span img, .hbox__top h3 span img {
+      width: 45px;
+      border-radius: 8px;
+      position: relative;
+      top: 8px;
+      margin-right: 5px; }
+
   .h_sw .h1, .h_sw .h2, .h_sw .h3, .h_sw h1, .h_sw h2, .h_sw h3 {
     font-size: 36px !important; }
   .h_sw .hot_item__title {
@@ -285,6 +377,9 @@
   main {
     padding-bottom: 50px; }
 
+  .page_site .page_site__flex {
+    padding-bottom: 0; }
+
   .mobile_menu {
     display: block;
     position: fixed;
@@ -311,13 +406,15 @@
       bottom: 0;
       padding: 18px 0 0 0;
       border-radius: 10px 10px 0 0;
-      max-height: 80%;
-      overflow: auto; }
+      height: 80%; }
       .mob_menu_content .mob_menu_content_absol .m_m_cont_top1 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 5px 15px 15px 15px; }
+        padding: 5px 15px 15px 15px;
+        background: #fff;
+        position: relative;
+        z-index: 6; }
         .mob_menu_content .mob_menu_content_absol .m_m_cont_top1 .m_m_top_label {
           height: 24px;
           font-weight: 600; }
@@ -331,7 +428,9 @@
       .mob_menu_content .mob_menu_content_absol .m_m_cont_top2 {
         height: 56px;
         background: #F7F7F7;
-        padding: 5px 16px 5px 16px; }
+        padding: 5px 16px 5px 16px;
+        position: relative;
+        z-index: 6; }
         .mob_menu_content .mob_menu_content_absol .m_m_cont_top2 .language {
           color: #282828;
           font-weight: 600; }
@@ -400,6 +499,44 @@
       background-repeat: no-repeat;
       background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAuOCAxMkMwLjggNS44MTQ4MyA1LjgxNDgzIDAuOCAxMiAwLjhDMTguMTg1MiAwLjggMjMuMiA1LjgxNDgzIDIzLjIgMTJDMjMuMiAxOC4xODUyIDE4LjE4NTIgMjMuMiAxMiAyMy4yQzUuODE0ODMgMjMuMiAwLjggMTguMTg1MiAwLjggMTJaIiBzdHJva2U9IiNFRjUzM0YiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxwYXRoIGQ9Ik0xMiA2QzE0LjQ4MSA2IDE2LjUgOC4wMTkgMTYuNSAxMC41QzE2LjUgMTIuOTgxIDE0LjQ4MSAxNSAxMiAxNUM5LjUxOSAxNSA3LjUgMTIuOTgxIDcuNSAxMC41QzcuNSA4LjAxOSA5LjUxOSA2IDEyIDZaIiBmaWxsPSIjRUY1MzNGIi8+CjxwYXRoIGQ9Ik0xMS45OTk5IDIzQzkuNDE5ODggMjMgNy4wNzI4OCAyMi4wMSA1LjI5Njg4IDIwLjM5OUM2LjE0Mjg4IDE4LjQ0MSA4LjgxNTg4IDE3IDExLjk5OTkgMTdDMTUuMTgzOSAxNyAxNy44NTY5IDE4LjQ0MSAxOC43MDI5IDIwLjM5OUMxNi45MjY5IDIyLjAxIDE0LjU3OTkgMjMgMTEuOTk5OSAyM1oiIGZpbGw9IiNFRjUzM0YiLz4KPC9zdmc+Cg=="); }
 
+  .fMenu {
+    position: relative;
+    height: 80%;
+    z-index: 5; }
+    .fMenu li {
+      min-height: 56px;
+      border-bottom: 1px solid rgba(40, 40, 40, 0.1); }
+      .fMenu li a {
+        box-sizing: border-box;
+        min-height: 56px;
+        color: #282828;
+        display: block;
+        text-decoration: none;
+        line-height: 56px;
+        padding: 0 16px;
+        font-size: 18px; }
+      .fMenu li a:hover, .fMenu li a.active {
+        color: #EF533F; }
+    .fMenu li:last-child {
+      border-bottom: none; }
+
+  .fMenu {
+    width: 100%;
+    overflow-y: scroll; }
+
+  .fMenu::-webkit-scrollbar-track {
+    border-radius: 4px; }
+
+  .fMenu::-webkit-scrollbar {
+    width: 6px; }
+
+  .fMenu::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #EF533F; }
+
+  .fMenu:hover::-webkit-scrollbar-thumb {
+    background: #ebebed; }
+
   /* Переход на мобильную версию */ }
 /* pocofon  x3 */
 /* xiaomi pro6 */
@@ -409,7 +546,25 @@
 
   .p_plane .p_plane__flex .p_plane__right {
     width: 55%;
-    padding: 0 0 0 20px; } }
+    padding: 0 0 0 20px; }
+
+  .v_s_c__flex,
+  .pc_links {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; }
+    .v_s_c__flex .v_s_c__item,
+    .v_s_c__flex .sub_m_index,
+    .pc_links .v_s_c__item,
+    .pc_links .sub_m_index {
+      flex: 0 0 auto; }
+    .v_s_c__flex::-webkit-scrollbar,
+    .pc_links::-webkit-scrollbar {
+      display: none; }
+
+  .hbox__top {
+    padding-right: 0; } }
 /* xiaomi pro6 */
 @media (max-width: 666px) {
   .p_plane {
@@ -442,6 +597,14 @@
       width: 100%;
       padding-left: 0 !important; }
 
+  .n_vid__flex .n_vid_item {
+    width: 50%;
+    max-width: 100% !important; }
+    .n_vid__flex .n_vid_item img {
+      width: auto;
+      height: auto;
+      max-width: 100%; }
+
   .n_vid_item:nth-child(3) {
     display: none; }
 
@@ -470,6 +633,25 @@
     height: auto !important; } }
 @media (max-width: 468px) {
   /*размер шрифтов*/
+  .pc_category h4 {
+    font-size: 24px;
+    bottom: 60px;
+    left: 16px; }
+  .pc_category .pc_category_flag {
+    bottom: 30px;
+    left: 16px; }
+
+  .desc h2 {
+    font-size: 32px; }
+  .desc h3 {
+    font-size: 26px; }
+  .desc h4 {
+    font-size: 26px; }
+
+  .hbox__top .h1, .hbox__top h1, .hbox__top h2, .hbox__top h3 {
+    font-size: 32px !important;
+    line-height: 1em !important; }
+
   .h_sw .h1, .h_sw .h2, .h_sw .h3, .h_sw h1, .h_sw h2, .h_sw h3 {
     font-size: 32px !important;
     line-height: 1em !important; }
@@ -571,7 +753,49 @@
   .pc_item .pc_links .sub_m4 {
     display: none; }
   .pc_item .pc_links .sub_m_index {
-    font-size: 15px; } }
+    font-size: 15px; }
+
+  .hcol.hcolImgText.hcol__hotels .hcolImgText__left {
+    width: 150px !important; }
+
+  .hbox.temp_img_text .hrow .hcol {
+    height: 120px !important; }
+
+  .hcolImgText__flex .hcolImgText__left {
+    width: 150px !important; }
+    .hcolImgText__flex .hcolImgText__left a div {
+      width: 120px !important;
+      height: 120px !important; }
+
+  .hbox.temp_img_text .hcolImgText__title h2 {
+    font-size: 19px !important;
+    margin-top: 10px !important;
+    height: 100% !important;
+    overflow: auto; }
+  .hbox.temp_img_text .hcolImgText__smalltext {
+    display: none; }
+  .hbox.temp_img_text .hotel__redstar {
+    top: 2px !important;
+    font-size: 15px; }
+
+  .hbox.temp_img .hrow {
+    display: block !important; }
+    .hbox.temp_img .hrow .hcol {
+      width: 100%; }
+      .hbox.temp_img .hrow .hcol a {
+        margin-left: 0 !important;
+        margin-right: 0 !important; } }
+@media (max-width: 416px) {
+  .n_vid__flex .n_vid_item {
+    width: 100%;
+    max-width: 100% !important; }
+    .n_vid__flex .n_vid_item img {
+      width: 100% !important;
+      height: auto;
+      max-width: 100%; }
+
+  .n_vid_item:nth-child(2) {
+    display: none; } }
 @media (max-width: 340px) {
   .pc_vid .pc_item__left .pc_category_img {
     width: 100% !important;

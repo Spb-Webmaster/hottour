@@ -24,53 +24,52 @@ $maxWidth: 1440;
     width: 100%;
     padding: 20px 0 0 0;
 
-    .pagination {
-        display: flex;
-        justify-content: center;
+   .pagination {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
 
-        font-size: 18px;
+       li {
+           width: 36px;
+           height: 36px;
 
-        li {
-            width: 36px;
-            height: 36px;
+           border: 1px solid #ddd;
+           display: flex;
+           justify-content: center;
+           background: #fff;
+           border-radius: 8px;
+           margin: 0 6px;
+           position: relative;
 
-            border: 1px solid #ddd;
-            display: flex;
-            justify-content: center;
-            background: #fff;
-            border-radius: 8px;
-            margin: 0 6px;
-            position: relative;
-
-            a, span {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 36px;
-                width: 36px;
-                text-decoration: none;
-                position: relative;
-                top: -1.8px;
-                color: $colorGrey;
-                transition: 0.2s;
-
-
-            }
-
-            &.active, &:hover {
-                background: $colorRed;
-                border: 1px solid $colorRed;
+           a, span {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               height: 36px;
+               width: 36px;
+               text-decoration: none;
+               position: relative;
+               top: -1.8px;
+               color: $colorGrey;
+               transition: 0.2s;
 
 
-                a, span {
-                    color: #fff;
+           }
 
-                }
-            }
-        }
+           &.active, &:hover {
+               background: $colorRed;
+               border: 1px solid $colorRed;
 
-    }
 
+               a, span {
+                   color: #fff;
+
+               }
+           }
+
+
+       }
+   }
 
     li.disabled {
         display: none;
@@ -164,3 +163,69 @@ $maxWidth: 1440;
         }
     }
 }
+
+
+@media (max-width: 1268px) {
+
+    .pagi__6,
+    .pagi__7,
+    .pagi__8,
+    .pagi__9,
+    .pagi__10
+    {
+
+
+    }
+    .pagination {
+        li:nth-child(9),
+        li:nth-child(10),
+        li:nth-child(11),
+        li:nth-child(12),
+        li:nth-child(13),
+        {
+            display: none !important;
+
+        }
+        li.active {
+            display: flex !important;
+        }
+    }
+
+
+
+}
+
+@media (max-width: 742px) {
+
+    .nav__pagination_previous,
+    .nav__pagination_next
+
+    {
+        width: 36px;
+      li {
+          width: 36px;
+      }
+        i {
+            display: none !important;
+        }
+    }
+
+}
+
+@media (max-width: 542px) {
+    .pagination {
+
+        li:nth-child(6),
+        li:nth-child(7),
+        li:nth-child(8),
+        {
+            display: none !important;
+
+        }
+        li.active {
+            display: flex !important;
+        }
+    }
+}
+
+// pagi__6

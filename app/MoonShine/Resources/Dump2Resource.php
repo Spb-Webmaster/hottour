@@ -123,6 +123,8 @@ class Dump2Resource extends TreeResource
                                     Text::make('Мета тэг (description) ', 'description'),
                                     Text::make('Мета тэг (keywords) ', 'keywords'),
                                     Switcher::make('Публикация', 'published')->default(1),
+                                    Switcher::make('Шаблон с изображением', 'temp')->default(0),
+
 
                                 ]),
 

@@ -28,11 +28,13 @@
 @import "./forms/form_modal/qr_modal.scss";
 @import "./forms/order_mini.scss";
 @import "./forms/loader.css";
+@import "./hotcategory/temp_img_cat/templates.scss";
 @import "./hotcategory/temp_img/templates.scss";
 @import "./hotcategory/temp_img_tree/templates.scss";
 @import "./hotcategory/temp_img_text/templates.scss";
 @import "./hotcategory/fullpage.scss";
 @import "./hotcategory/fullpage_hotel.scss";
+@import "./dump/temp_noimg/templates.scss";
 @import "./translate/translate.css";
 @import "./pagination.scss";
 @import "./social/social.scss";

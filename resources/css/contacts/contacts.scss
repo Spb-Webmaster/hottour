@@ -167,6 +167,19 @@ $maxWidth: 1440;
     .jt_ph {
         padding-bottom: 5px;
         font-size: 14px;
+        span {
+            color: $colorGrey;
+            font-size: 12px;
+        }
+
+    }
+    .jt_ph__address {
+        padding: 10px 0;
+        font-size: 14px;
+        span {
+            color: $colorGrey;
+            font-size: 12px;
+        }
 
     }
 }
@@ -215,6 +228,20 @@ $maxWidth: 1440;
                 }
 
 
+            }
+        }
+    }
+}
+
+@media (max-width: 1310px) {
+    .catalogContacts {
+        .contactTabs {
+            .contactTabs__top {
+                 height: auto;
+                 flex-wrap: wrap;
+
+                .contactTabs__tab {
+                }
             }
         }
     }
@@ -269,6 +296,19 @@ $maxWidth: 1440;
     }
 }
 
+@media (max-width: 921px) {
+    #JFormFieldMap:after {
+        width: 29px;
+        height: 545px;
+        right: -8px;
+        top: 0;
+        position: absolute;
+        content: "";
+        display: block;
+        background: #f7f7f7;
+        z-index: 100;
+    }
+}
 @media (max-width: 868px) {
 
     .catalogContacts {
@@ -336,6 +376,9 @@ $maxWidth: 1440;
 }
 
 @media (max-width: 468px) {
+    .catalogContacts .contactTabs .contactTabs__bottom .contactTabsBody__tab .contact_area__center .contact_area__label {
+        padding: 16px 0 10px 0 !important;
+    }
     .catalogContacts {
         .contact_area__fsite_social {
             width: 100% !important;

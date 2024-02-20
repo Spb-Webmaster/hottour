@@ -15,14 +15,14 @@
 
                             <h1>{{ __('Страны') }}</h1>
                         </div>
-                        <div class="hrow">
+                        <div class="hrow pad_t40_important">
                             @foreach($countries as $country)
 
                                 <div class="hcol">
                                     <div class="pc_category">
                                         <a href="{{ asset(config('links.link.countries').'/'.$country->slug) }}">
-                                            <img class="pc_category_img" width="430" height="230"
-                                                 src="{{asset('storage/'.$country->img)}}"
+                                            <img class="pc_category_img" width="430" height="230" loading="lazy"
+                                                 src="{{ asset(intervention('430x230', $country->img)) }}"
                                                  alt="{{$country->title}}">
                                             <img class="pc_category_flag"
                                                  src="{{asset('storage/'.$country->imgflag)}}"

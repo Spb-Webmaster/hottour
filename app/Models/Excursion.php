@@ -21,6 +21,7 @@ class Excursion extends Model
         'imgflag',
         'gallery',
         'smalltext',
+        'hot_category_id',
         'text',
         'text2',
         'pageimg1',
@@ -38,11 +39,11 @@ class Excursion extends Model
         'params' => 'collection',
     ];
 
+
     public function parent():BelongsTo
     {
         return $this->belongsTo(HotCategory::class,  'hot_category_id');
     }
-
 
 
     /**

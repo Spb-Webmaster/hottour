@@ -41,7 +41,7 @@ keywords="{{$country->keywords}}"
                                 <div class="v_s_c__item active"><span>{{ __('О стране') }}</span></div>
                                 @foreach($subcountries as $subcountry)
                                     <div class="v_s_c__item"><a
-                                            href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">{{ $subcountry->title_for_menu }}</a>
+                                            href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">{{ ($subcountry->title_for_menu)?:$subcountry->title  }}</a>
                                     </div>
 
                                 @endforeach

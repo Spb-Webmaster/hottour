@@ -103,7 +103,6 @@ $(document).ready(function () {
         });
 
     });
-
     /* order call */
 
     /* order call  (mini форма на главной)*/
@@ -146,7 +145,61 @@ $(document).ready(function () {
         });
 
     });
+    /* order call  (mini форма на главной)*/
 
+
+    /* order call  (mini форма на главной)*/
+    $('body').on('click', '.pick_tour_button_js', function (event) {
+        var Country = $(this).data('country');
+        $('#pick_tour').attr('data-country',Country );
+    });
+
+    $('body').on('click', '.pick_tour_js', function (event) {
+
+        var Parents = $(this).parents('.F_form');
+        var Name = Parents.find('.input[name="name"]').val();
+        var Phone = Parents.find('.input[name="phone"]').val();
+        var Sity = Parents.find('[name="sity"]').val();
+        var Email = Parents.find('.input[name="email"]').val();
+        var Date = Parents.find('.input[name="date"]').val();
+        var Crm = Parents.find('.input[name="crm"]').val();
+        var Country = Parents.data('country');
+        var Token = Parents.data('token');
+        loader(Parents);
+
+        $.ajax({
+            url: "/send-mail/pick_tour",
+            method: "POST",
+            data: {
+                "_token": Token,
+                "crm": Crm,
+                "name": Name,
+                "date": Date,
+                "phone": Phone,
+                "email": Email,
+                "sity": Sity,
+                "country": Country,
+                "url": url(),
+            },
+            success: function (response) {
+                if (response.error) {
+                    setTimeout(function () {
+                        Parents.find('.wrapper_loader ').css('display', 'none');
+                        printErrorMsg(Parents, response.error);
+                    }, 1000);
+
+                } else {
+                    setTimeout(function () {
+                        console.log(response);
+                        Parents.find('.wrapper_loader ').css('display', 'none');
+                        Parents.find('.F_form__pick ').hide();
+                        Parents.find('.F_responce').show();
+                    }, 1000);
+                }
+            }
+        });
+
+    });
     /* order call  (mini форма на главной)*/
 
 

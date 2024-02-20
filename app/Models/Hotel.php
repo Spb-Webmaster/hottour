@@ -35,6 +35,7 @@ class Hotel extends Model
         'build',
         'repair',
         'coord',
+        'hot_category_id',
 
 
         'published',

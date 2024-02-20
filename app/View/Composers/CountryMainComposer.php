@@ -13,22 +13,7 @@ class CountryMainComposer
     public function compose(View $view): void
     {
 
-      //  $menu  = Cache::rememberForever('module_country_main', function () {
-   /*       $country =  HotCategory::query()
-            ->where('published', true)
-            ->with(['parent' => function ($q) {
-                return $q->where('published', true);
-            }])
-            ->take(100)
-            ->orderBy('sorting')
-            ->get();*/
-
         $countries = CountryViewModel::make()->listCountriesForMain();
-
-       // dump($country->child);
-       // dd($countries);
-
-      //    });
 
 
         $view->with([

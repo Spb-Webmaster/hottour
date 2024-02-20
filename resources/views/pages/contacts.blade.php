@@ -139,7 +139,7 @@
 
 
             @foreach($contacts as $k=>$contact)
-                myPlacemark{{$k}} = new ymaps.Placemark([{{$contact->yandex_map}}], {balloonContent: '<h5>{{$contact->title}}</h5>@foreach($contact->data_phone as $k => $property)<p class="jt_ph">{{$property['jt1']}}</p>@endforeach @if($contact->address)<p class="jt_ph">{{$contact->address}}</p>@endif'}, {
+                myPlacemark{{$k}} = new ymaps.Placemark([{{$contact->yandex_map}}], {balloonContent: '<h5>{{$contact->title}}</h5>@foreach($contact->data_phone as $k => $property)<p class="jt_ph ">{!!  $property['jt1']!!}</p>@endforeach @if($contact->address)<p class="jt_ph jt_ph__address">{!! $contact->address!!}</p>@endif'}, {
                 iconLayout: 'default#image',
                 iconImageHref: '{{ asset('/storage/contacts/myIcon.svg') }}',
                 iconImageSize: [58, 55],

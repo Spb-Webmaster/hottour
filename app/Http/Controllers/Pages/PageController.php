@@ -13,6 +13,10 @@ class PageController extends Controller
     public function page(Page $page)
     {
 
+        if($page->slug == 'home') {
+            return redirect(route('home'));
+        }
+
         return view('pages.page',
             [
                 'item' => $page,

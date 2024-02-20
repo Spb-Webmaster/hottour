@@ -24,7 +24,7 @@
                                              src="{{asset('storage/'.$hot_category->imgflag)}}"
                                              width="62"
                                              height="40" loading="lazy" alt="{{$hot_category->title}}"/>
-                                        </span>
+                                    </span>
                                 @endif
                                 {{ ($hot_category->subtitle)?: $hot_category->title }}
 
@@ -44,7 +44,7 @@
                                 @foreach($subcountries as $subcountry)
                                     <div
                                         class="v_s_c__item {{ active_linkMenu(asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) ) }}">
-                                        <a href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">{{ $subcountry->title_for_menu }}</a>
+                                        <a href="{{ asset(route('countries').'/'. $country->slug. '/'. $subcountry->slug) }}">{{ ($subcountry->title_for_menu)?:$subcountry->title  }}</a>
                                     </div>
 
                                 @endforeach
@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="hbox temp_img_text">
-                        <div class="hrow">
+                        <div class="hrow ">
 
                             @if(count($resorts))
                                 @include('pages.countries.partial.resorts')

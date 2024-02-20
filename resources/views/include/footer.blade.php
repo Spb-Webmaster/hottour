@@ -32,36 +32,32 @@
                 <div class="fl_2 f_menus">
 
                     <div class="f1 ff">
-                        <div class="h4">О нас</div>
+                        <div class="h4">{{ __('О нас') }}</div>
                         <ul class=" nav menu mod-list">
-                            <li class="item-243"><a href="/o-nas/otzyvy">Отзывы</a></li>
-                            <li class="item-245"><a href="/o-nas/partnjory">Партнеры</a></li>
-                            <li class="item-246"><a href="/o-nas/obrashchenie">Обращение</a></li>
-                            <li class="item-312"><a href="/sitemap.xml">Карта сайта</a></li>
-                            <li class="item-250"><a href="/kontakty">Контакты</a></li>
+
+                        @foreach($top_menudump2s as $menu)
+                            <li class="{{ active_linkMenu(asset(config('links.link.dump2'). '/' . $menu['slug']), 'find') }}"><a href="{{ asset(config('links.link.dump2'). '/' . $menu['slug'])  }}">{{ $menu['title']  }}</a></li>
+                        @endforeach
                         </ul>
                     </div>
 
                     <div class="f2 ff">
-                        <div class="h4">О нас</div>
+                        <div class="h4">{{__('Туры')}}</div>
                         <ul class=" nav menu mod-list">
-                            <li class="active"><a href="/o-nas/otzyvy">Отзывы</a></li>
-                            <li class="item-245"><a href="/o-nas/partnjory">Партнеры</a></li>
-                            <li class="item-246"><a href="/o-nas/obrashchenie">Обращение</a></li>
-                            <li class="item-312"><a href="/sitemap.xml">Карта сайта</a></li>
-                            <li class="item-250"><a href="/kontakty">Контакты</a></li>
+                            @foreach($top_menutours as $menu)
+                                <li class="{{ active_linkMenu(asset(config('links.link.tours'). '/' . $menu['slug']), 'find') }}"><a href="{{ asset(config('links.link.tours'). '/' . $menu['slug'])  }}">{{ $menu['title']  }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
 
                     <div class="f3 ff">
-                        <div class="h4">О нас</div>
+                        <div class="h4">{{__('Полезное')}}</div>
                         <ul class=" nav menu mod-list">
-                            <li class="item-243"><a href="/o-nas/otzyvy">Отзывы</a></li>
-                            <li class="item-245"><a href="/o-nas/partnjory">Партнеры</a></li>
-                            <li class="item-246"><a href="/o-nas/obrashchenie">Обращение</a></li>
-                            <li class="item-312"><a href="/sitemap.xml">Карта сайта</a></li>
-                            <li class="item-250"><a href="/kontakty">Контакты</a></li>
+                            @foreach($top_menudumps as $menu)
+                                <li class="{{ active_linkMenu(asset(config('links.link.dump'). '/' . $menu['slug']), 'find') }}"><a href="{{ asset(config('links.link.dump'). '/' . $menu['slug'])  }}">{{ $menu['title']  }}</a></li>
+                            @endforeach
                         </ul>
+
                     </div>
 
                 </div>

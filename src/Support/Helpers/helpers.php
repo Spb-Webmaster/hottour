@@ -44,6 +44,7 @@ if (!function_exists('cache_clear ')) {
         Cache::forget('top_menutours');
         Cache::forget('top_menudumps');
         Cache::forget('top_menudump2s');
+        Cache::forget('top_menuhottour');
         Cache::forget('countries');
 
         Cache::forget('list_countries');
@@ -70,6 +71,12 @@ if (!function_exists('cache_clear ')) {
 
 
         Cache::forget('module_country_main');
+        Cache::forget('main_publs');
+
+        Cache::forget('add_to_main');
+
+        Cache::forget('travel_category');
+        Cache::forget('travel_item');
 
 
     }
@@ -323,6 +330,7 @@ if (!function_exists('active_link')) {
 if (!function_exists('active_linkMenu')) {
     function active_linkMenu(string|array $url, string $find = null, string $class = 'active'): string|null
     {
+
         if($find) {
             if(str_starts_with(url()->current(), trim($url))) {
                 return $class;
@@ -331,9 +339,11 @@ if (!function_exists('active_linkMenu')) {
 
         }
 
+
         return ($url == url()->current() ) ? $class : null;
     }
 }
+
 
 
 if (!function_exists('route_name')) {
